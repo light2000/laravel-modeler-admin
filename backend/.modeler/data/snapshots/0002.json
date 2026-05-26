@@ -1,0 +1,585 @@
+{
+    "modules": [
+        {
+            "id": "01KRGDMQZGHMG04MQ3NVR6B4M1",
+            "name": "App",
+            "code": "app",
+            "description": "默认模块",
+            "namespaceId": "01KRGDMQY2PVDND7Y7PNR4508X"
+        },
+        {
+            "id": "01KRYZSXADXH4VZS48VKKYV90N",
+            "name": "用户",
+            "code": "user",
+            "description": "用户模组",
+            "items": [
+                {
+                    "id": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                    "name": "用户",
+                    "code": "user",
+                    "table": "users",
+                    "description": "前台用户",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 258,
+                    "y": 410,
+                    "attrs": [
+                        {
+                            "id": "01KRZ019S4GHZQE53H3GKEE9WP",
+                            "name": "用户名",
+                            "code": "username",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_USERNAME"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ019S4PCQK5SWX4WMS3WBT",
+                            "name": "密码",
+                            "code": "password",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_PASSWORD"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ019S4QDKH8FF5GVPJ4VCE",
+                            "name": "昵称",
+                            "code": "nickname",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_NICKNAME"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S416J613HEHG33Y4PH",
+                            "name": "邮箱",
+                            "code": "email",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_EMAIL"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S47PEEK9TVHG47TWCJ",
+                            "name": "手机号",
+                            "code": "phone",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_PHONE"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S449S0PHZZ8AN78QPC",
+                            "name": "头像",
+                            "code": "avatar",
+                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_AVATAR"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S4D3928KWYZ981Z53D",
+                            "name": "状态",
+                            "code": "status",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KRZ0126W9B2F7GBVPKKK1X74",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ019S43FQSCKA4PE5SSA0N",
+                            "name": "最后登录时间",
+                            "code": "last_login_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME",
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ019S4CQQXV9TT0TRA5VR0",
+                            "code": "idx_username",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ019S4GHZQE53H3GKEE9WP"
+                            ]
+                        },
+                        {
+                            "id": "01KRZ019S4220TAY3VK9JX80P1",
+                            "code": "idx_email",
+                            "attrIds": [
+                                "01KRZ019S416J613HEHG33Y4PH"
+                            ]
+                        },
+                        {
+                            "id": "01KRZ019S4ET3TWF6KJDW5WX12",
+                            "code": "idx_phone",
+                            "attrIds": [
+                                "01KRZ019S47PEEK9TVHG47TWCJ"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ0NKQK3JJEZ1ZPTX1E2JSE",
+                            "code": "token",
+                            "type": "ITEM_RELATION_TYPE_MORPH_MANY",
+                            "targetItemId": "01KRZ0J8HBRS644EJS22DG5ZDG",
+                            "attrId": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ0NESMZ068F0FZGEB3P4WD"
+                        },
+                        {
+                            "id": "01KRZ1SQRDGAD5PFA1JCRMWS4D",
+                            "code": "role",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO_MANY",
+                            "targetItemId": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                            "pivotId": "01KRZ1SFSEF14611KB5CJ8FKV9",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ1SFSEQ8B5QQ677DMHVCBR"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KRZ04880G08EG5THACMQNH4Y",
+                    "name": "管理员",
+                    "code": "administrator",
+                    "table": "administrators",
+                    "description": "管理员用户",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 1009,
+                    "y": 806,
+                    "attrs": [
+                        {
+                            "id": "01KRZ048804FERZSAQ7MDPEBMJ",
+                            "name": "状态",
+                            "code": "status",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KRZ0126W9B2F7GBVPKKK1X74",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ04N4MQND74GR7JCKEK7Q7",
+                            "name": "邮箱",
+                            "code": "mailbox",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KRZ05R80MP3YPFVGJF11RXTB",
+                            "name": "密码",
+                            "code": "password",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KRZ067XKCK1KSYCADQKH2G9Y",
+                            "name": "昵称",
+                            "code": "nickname",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KRZ072VK5WGJB4GBBPJ8TAQT",
+                            "name": "头像",
+                            "code": "avatar",
+                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ048808CBVT7A21T2JC5CK",
+                            "code": "idx_status",
+                            "attrIds": [
+                                "01KRZ048804FERZSAQ7MDPEBMJ"
+                            ]
+                        },
+                        {
+                            "id": "01KRZ06R9ZF2PHVGB5FX88FNFY",
+                            "code": "uniq_mailbox",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ04N4MQND74GR7JCKEK7Q7"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ0NESMGT3M6FWPCTD1ERN0",
+                            "code": "token",
+                            "type": "ITEM_RELATION_TYPE_MORPH_MANY",
+                            "targetItemId": "01KRZ0J8HBRS644EJS22DG5ZDG",
+                            "attrId": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ0NESMZ068F0FZGEB3P4WD"
+                        },
+                        {
+                            "id": "01KRZ1SFSE9CHEZ9XB95XPY1EX",
+                            "code": "role",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO_MANY",
+                            "targetItemId": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                            "pivotId": "01KRZ1SFSEF14611KB5CJ8FKV9",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ1SFSEQ8B5QQ677DMHVCBR"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KRZ0DTBGSFZMN8REP4PD18TQ",
+                    "name": "权限",
+                    "code": "permission",
+                    "table": "permissions",
+                    "description": "权限配置",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 1048,
+                    "y": 369,
+                    "attrs": [
+                        {
+                            "id": "01KRZ0DTBH03C1PNNEV1D1P0AY",
+                            "name": "权限标识",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ0DTBH32VSR3MXST3BBE86",
+                            "name": "所属GUARD",
+                            "code": "guard_name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ0EE0WKY79MZX3ZNQJ2Y37",
+                            "code": "uniq_name_guard_name",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ0DTBH03C1PNNEV1D1P0AY",
+                                "01KRZ0DTBH32VSR3MXST3BBE86"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KS1QH76J67JGWNCZ775WNAFT",
+                            "code": "roles",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO_MANY",
+                            "targetItemId": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                            "pivotId": "01KS1QH76HBD19SG06XFRWD7BG",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KS1QH76J3QDYMEAXJC76NQM4"
+                        }
+                    ]
+                },
+                {
+                    "id": "01KRZ0J8HBRS644EJS22DG5ZDG",
+                    "name": "Token",
+                    "code": "token",
+                    "table": "tokens",
+                    "description": "用户登录票据",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 436,
+                    "y": 793,
+                    "attrs": [
+                        {
+                            "id": "01KRZ0J8HBPE11GWS2NA7VZH1C",
+                            "name": "token值",
+                            "code": "token",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ0J8HBERFJ47YNAAG2KZMA",
+                            "name": "过期时间",
+                            "code": "expires_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ0J8HB746793KB0J85CD99",
+                            "name": "最后使用时间",
+                            "code": "last_used_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ0JQ6920EXF6BDW5AAJ52P",
+                            "name": "Token名称",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KRZ0KAEVEVF717DC288ZMSFP",
+                            "name": "能力",
+                            "code": "abilities",
+                            "type": "ATTRIBUTE_TYPE_TEXT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_TEXT",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "name": "Tokenable ID",
+                            "code": "tokenable_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_ID"
+                        },
+                        {
+                            "id": "01KRZ0NKQKZYGKT3GDT7N2J7B0",
+                            "name": "Tokenable 类型",
+                            "code": "tokenable_type",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_TYPE"
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ0NESMZ068F0FZGEB3P4WD",
+                            "code": "tokenable",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO",
+                            "targetItemId": "01KRZ04880G08EG5THACMQNH4Y",
+                            "attrId": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "morphTargets": [
+                                {
+                                    "targetItemId": "01KRZ04880G08EG5THACMQNH4Y",
+                                    "reverseRelationId": "01KRZ0NESMGT3M6FWPCTD1ERN0"
+                                },
+                                {
+                                    "targetItemId": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                                    "reverseRelationId": "01KRZ0NKQK3JJEZ1ZPTX1E2JSE"
+                                }
+                            ],
+                            "isInternal": true
+                        }
+                    ]
+                },
+                {
+                    "id": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                    "name": "角色",
+                    "code": "role",
+                    "table": "roles",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 648,
+                    "y": 502,
+                    "attrs": [
+                        {
+                            "id": "01KRZ1Q7JGNDJ62KEP1HS8MGR0",
+                            "name": "角色名称",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ1Q7JG3B4MDP4F3WSDJ0WQ",
+                            "name": "角色GUARD",
+                            "code": "guard_name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ1Q7JHN6Q5NB2NQWJJ6CDC",
+                            "code": "idx_name",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ1Q7JGNDJ62KEP1HS8MGR0"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ1SFSEQ8B5QQ677DMHVCBR",
+                            "type": "ITEM_RELATION_TYPE_MORPHED_BY_MANY",
+                            "pivotId": "01KRZ1SFSEF14611KB5CJ8FKV9",
+                            "morphTargets": [
+                                {
+                                    "targetItemId": "01KRZ04880G08EG5THACMQNH4Y",
+                                    "code": "administrators",
+                                    "reverseRelationId": "01KRZ1SFSE9CHEZ9XB95XPY1EX"
+                                },
+                                {
+                                    "targetItemId": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                                    "code": "users",
+                                    "reverseRelationId": "01KRZ1SQRDGAD5PFA1JCRMWS4D"
+                                }
+                            ],
+                            "isInternal": true
+                        },
+                        {
+                            "id": "01KS1QH76J3QDYMEAXJC76NQM4",
+                            "code": "permissions",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO_MANY",
+                            "targetItemId": "01KRZ0DTBGSFZMN8REP4PD18TQ",
+                            "pivotId": "01KS1QH76HBD19SG06XFRWD7BG",
+                            "isInternal": true,
+                            "reverseRelationId": "01KS1QH76J67JGWNCZ775WNAFT"
+                        }
+                    ]
+                }
+            ],
+            "namespaceId": "01KRGDMQYENQF60DZM3N5NPJY5"
+        }
+    ],
+    "pivotItems": [
+        {
+            "id": "01KRZ1SFSEF14611KB5CJ8FKV9",
+            "name": "角色多态关联",
+            "code": "pivot_role",
+            "table": "pivot_roles",
+            "attrs": [
+                {
+                    "id": "01KRZ1SFSDN923SW8Y87V1XXVE",
+                    "name": "角色ID",
+                    "code": "role_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                },
+                {
+                    "id": "01KRZ1SFSDR6P74W75HSK8GGSW",
+                    "name": "多态ID",
+                    "code": "model_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_ID"
+                },
+                {
+                    "id": "01KRZ1SFSD7NWBEM110FQ6NKA5",
+                    "name": "多态类型",
+                    "code": "model_type",
+                    "type": "ATTRIBUTE_TYPE_STRING",
+                    "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                    "fieldLength": 255,
+                    "nullable": true,
+                    "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_TYPE"
+                }
+            ]
+        },
+        {
+            "id": "01KS1QH76HBD19SG06XFRWD7BG",
+            "name": "角色权限",
+            "code": "role_permission",
+            "table": "role_permissions",
+            "attrs": [
+                {
+                    "id": "01KS1QH76HA9VD43K8DHMMCE50",
+                    "name": "角色ID",
+                    "code": "role_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                },
+                {
+                    "id": "01KS1QH76H2NE70K08KAN65ZFK",
+                    "name": "权限ID",
+                    "code": "permission_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                }
+            ]
+        }
+    ],
+    "dictionaries": [
+        {
+            "id": "01KRZ0126W9B2F7GBVPKKK1X74",
+            "name": "用户状态",
+            "code": "user_status",
+            "options": [
+                {
+                    "id": "01KRZ0126WB9H3GTNDR1PQT340",
+                    "name": "正常",
+                    "code": "active"
+                },
+                {
+                    "id": "01KRZ0126W4ZD2B9TE034YCFXS",
+                    "name": "禁用",
+                    "code": "disabled"
+                }
+            ]
+        }
+    ],
+    "schemaVersion": 1,
+    "name": "Laravel",
+    "buildVersion": "0002",
+    "namespaces": [
+        {
+            "id": "01KRGDMQY2PVDND7Y7PNR4508X",
+            "name": "App",
+            "modelNamespace": "App\\Models",
+            "migrationOutputPath": "database/migrations",
+            "factoryNamespace": "Database\\Factories",
+            "seederNamespace": "Database\\Seeders",
+            "enumNamespace": "App\\Enums",
+            "isSystem": true
+        },
+        {
+            "id": "01KRGDMQYENQF60DZM3N5NPJY5",
+            "name": "Module",
+            "modelNamespace": "Modules\\{Module}\\Models",
+            "migrationOutputPath": "Modules/{Module}/database/migrations",
+            "factoryNamespace": "Modules\\{Module}\\Database\\Factories",
+            "seederNamespace": "Modules\\{Module}\\Database\\Seeders",
+            "enumNamespace": "Modules\\{Module}\\Enums",
+            "isSystem": true
+        }
+    ],
+    "pivotLayoutConfig": {
+        "modelNamespace": "App\\Models",
+        "migrationOutputPath": "database/migrations",
+        "factoryNamespace": "Database\\Factories"
+    },
+    "globalEnumLayoutConfig": {
+        "namespace": "App\\Enums"
+    }
+}

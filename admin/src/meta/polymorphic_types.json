@@ -1,0 +1,22 @@
+{
+    "token.tokenable_type": [
+        {
+            "value": "user",
+            "label": "用户"
+        },
+        {
+            "value": "administrator",
+            "label": "管理员"
+        }
+    ],
+    "product.spokesperson_type": [
+        {
+            "value": "actor",
+            "label": "演员"
+        },
+        {
+            "value": "athlete",
+            "label": "运动员"
+        }
+    ]
+}

@@ -1,0 +1,200 @@
+[
+    {
+        "key": "shop",
+        "label": "商城",
+        "children": [
+            {
+                "key": "shop.category",
+                "label": "分类",
+                "actions": [
+                    {
+                        "key": "shop.category.store",
+                        "label": "新建分类"
+                    },
+                    {
+                        "key": "shop.category.update",
+                        "label": "编辑分类"
+                    },
+                    {
+                        "key": "shop.category.index",
+                        "label": "分类列表"
+                    },
+                    {
+                        "key": "shop.category.show",
+                        "label": "查看分类"
+                    },
+                    {
+                        "key": "shop.category.destroy",
+                        "label": "删除分类"
+                    }
+                ]
+            },
+            {
+                "key": "shop.product",
+                "label": "产品",
+                "actions": [
+                    {
+                        "key": "shop.product.store",
+                        "label": "新建产品"
+                    },
+                    {
+                        "key": "shop.product.update",
+                        "label": "编辑产品"
+                    },
+                    {
+                        "key": "shop.product.index",
+                        "label": "产品列表"
+                    },
+                    {
+                        "key": "shop.product.show",
+                        "label": "查看产品"
+                    },
+                    {
+                        "key": "shop.product.destroy",
+                        "label": "删除产品"
+                    }
+                ]
+            },
+            {
+                "key": "shop.actor",
+                "label": "演员",
+                "actions": [
+                    {
+                        "key": "shop.actor.store",
+                        "label": "新建演员"
+                    },
+                    {
+                        "key": "shop.actor.update",
+                        "label": "编辑演员"
+                    },
+                    {
+                        "key": "shop.actor.index",
+                        "label": "演员列表"
+                    },
+                    {
+                        "key": "shop.actor.show",
+                        "label": "查看演员"
+                    },
+                    {
+                        "key": "shop.actor.destroy",
+                        "label": "删除演员"
+                    }
+                ]
+            },
+            {
+                "key": "shop.athlete",
+                "label": "运动员",
+                "actions": [
+                    {
+                        "key": "shop.athlete.store",
+                        "label": "新建运动员"
+                    },
+                    {
+                        "key": "shop.athlete.update",
+                        "label": "编辑运动员"
+                    },
+                    {
+                        "key": "shop.athlete.index",
+                        "label": "运动员列表"
+                    },
+                    {
+                        "key": "shop.athlete.show",
+                        "label": "查看运动员"
+                    },
+                    {
+                        "key": "shop.athlete.destroy",
+                        "label": "删除运动员"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": "user",
+        "label": "用户",
+        "children": [
+            {
+                "key": "user.user",
+                "label": "用户",
+                "actions": [
+                    {
+                        "key": "user.user.store",
+                        "label": "新建用户"
+                    },
+                    {
+                        "key": "user.user.update",
+                        "label": "编辑用户"
+                    },
+                    {
+                        "key": "user.user.index",
+                        "label": "用户列表"
+                    },
+                    {
+                        "key": "user.user.show",
+                        "label": "查看用户"
+                    },
+                    {
+                        "key": "user.user.destroy",
+                        "label": "删除用户"
+                    }
+                ]
+            },
+            {
+                "key": "user.administrator",
+                "label": "管理员",
+                "actions": [
+                    {
+                        "key": "user.administrator.store",
+                        "label": "新建管理员"
+                    },
+                    {
+                        "key": "user.administrator.update",
+                        "label": "编辑管理员"
+                    },
+                    {
+                        "key": "user.administrator.index",
+                        "label": "管理员列表"
+                    },
+                    {
+                        "key": "user.administrator.show",
+                        "label": "查看管理员"
+                    },
+                    {
+                        "key": "user.administrator.destroy",
+                        "label": "删除管理员"
+                    }
+                ]
+            },
+            {
+                "key": "user.role",
+                "label": "角色",
+                "actions": [
+                    {
+                        "key": "user.role.store",
+                        "label": "新建角色"
+                    },
+                    {
+                        "key": "user.role.update",
+                        "label": "编辑角色"
+                    },
+                    {
+                        "key": "user.role.index",
+                        "label": "角色列表"
+                    },
+                    {
+                        "key": "user.role.show",
+                        "label": "查看角色"
+                    },
+                    {
+                        "key": "user.role.destroy",
+                        "label": "删除角色"
+                    },
+                    {
+                        "key": "user.role.assign_permissions",
+                        "label": "分配权限"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,4980 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Laravel",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api"
+        }
+    ],
+    "paths": {
+        "/administrator/shop/actors": {
+            "post": {
+                "operationId": "shop.actor.store",
+                "tags": [
+                    "Actor"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Actor.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Actor.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.actor.index",
+                "tags": [
+                    "Actor"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "gender",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "male",
+                                "female"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "nationality",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "enum": [
+                                "10",
+                                "25",
+                                "50",
+                                "100"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `Modules.Shop.Transformers.Actor.IndexItemResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Actor.IndexResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/actors/{actor}": {
+            "put": {
+                "operationId": "shop.actor.update",
+                "tags": [
+                    "Actor"
+                ],
+                "parameters": [
+                    {
+                        "name": "actor",
+                        "in": "path",
+                        "required": true,
+                        "description": "The actor ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Actor.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Actor.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.actor.show",
+                "tags": [
+                    "Actor"
+                ],
+                "parameters": [
+                    {
+                        "name": "actor",
+                        "in": "path",
+                        "required": true,
+                        "description": "The actor ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Actor.ShowResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Actor.ShowResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "shop.actor.destroy",
+                "tags": [
+                    "Actor"
+                ],
+                "parameters": [
+                    {
+                        "name": "actor",
+                        "in": "path",
+                        "required": true,
+                        "description": "The actor ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/actors/{actor}/edit": {
+            "get": {
+                "operationId": "shop.actor.edit",
+                "tags": [
+                    "Actor"
+                ],
+                "parameters": [
+                    {
+                        "name": "actor",
+                        "in": "path",
+                        "required": true,
+                        "description": "The actor ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Actor.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Actor.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/auth/administrator/login": {
+            "post": {
+                "operationId": "administrator.login",
+                "tags": [
+                    "Administrator"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`LoginResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/LoginResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/auth/administrator/logout": {
+            "post": {
+                "operationId": "administrator.logout",
+                "tags": [
+                    "Administrator"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/administrator/user/administrators": {
+            "post": {
+                "operationId": "user.administrator.store",
+                "tags": [
+                    "Administrator"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.User.Http.Requests.Administrator.StoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Administrator.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Administrator.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "user.administrator.index",
+                "tags": [
+                    "Administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "account",
+                        "in": "query",
+                        "description": "\u8d26\u53f7",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nickname",
+                        "in": "query",
+                        "description": "\u6635\u79f0",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u9875\u7801",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "description": "\u5206\u9875\u5927\u5c0f",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "enum": [
+                                "10",
+                                "25",
+                                "50",
+                                "100"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u6392\u5e8f",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `Modules.User.Transformers.Administrator.IndexItemResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Administrator.IndexResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/administrators/{administrator}": {
+            "put": {
+                "operationId": "user.administrator.update",
+                "tags": [
+                    "Administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "administrator",
+                        "in": "path",
+                        "required": true,
+                        "description": "The administrator ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.User.Http.Requests.Administrator.UpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Administrator.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Administrator.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "user.administrator.show",
+                "tags": [
+                    "Administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "administrator",
+                        "in": "path",
+                        "required": true,
+                        "description": "The administrator ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Administrator.ShowResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Administrator.ShowResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "user.administrator.destroy",
+                "tags": [
+                    "Administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "administrator",
+                        "in": "path",
+                        "required": true,
+                        "description": "The administrator ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/administrators/{administrator}/edit": {
+            "get": {
+                "operationId": "user.administrator.edit",
+                "tags": [
+                    "Administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "administrator",
+                        "in": "path",
+                        "required": true,
+                        "description": "The administrator ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Administrator.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Administrator.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/athletes": {
+            "post": {
+                "operationId": "shop.athlete.store",
+                "tags": [
+                    "Athlete"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.Shop.Http.Requests.Athlete.StoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Athlete.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Athlete.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.athlete.index",
+                "tags": [
+                    "Athlete"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "gender",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "male",
+                                "female"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "enum": [
+                                "10",
+                                "25",
+                                "50",
+                                "100"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `Modules.Shop.Transformers.Athlete.IndexItemResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Athlete.IndexResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/athletes/{athlete}": {
+            "put": {
+                "operationId": "shop.athlete.update",
+                "tags": [
+                    "Athlete"
+                ],
+                "parameters": [
+                    {
+                        "name": "athlete",
+                        "in": "path",
+                        "required": true,
+                        "description": "The athlete ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.Shop.Http.Requests.Athlete.UpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Athlete.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Athlete.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.athlete.show",
+                "tags": [
+                    "Athlete"
+                ],
+                "parameters": [
+                    {
+                        "name": "athlete",
+                        "in": "path",
+                        "required": true,
+                        "description": "The athlete ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Athlete.ShowResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Athlete.ShowResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "shop.athlete.destroy",
+                "tags": [
+                    "Athlete"
+                ],
+                "parameters": [
+                    {
+                        "name": "athlete",
+                        "in": "path",
+                        "required": true,
+                        "description": "The athlete ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/athletes/{athlete}/edit": {
+            "get": {
+                "operationId": "shop.athlete.edit",
+                "tags": [
+                    "Athlete"
+                ],
+                "parameters": [
+                    {
+                        "name": "athlete",
+                        "in": "path",
+                        "required": true,
+                        "description": "The athlete ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Athlete.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Athlete.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/categories": {
+            "post": {
+                "operationId": "shop.category.store",
+                "tags": [
+                    "Category"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.Shop.Http.Requests.Category.StoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.category.index",
+                "tags": [
+                    "Category"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "parent_id",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "enum": [
+                                "10",
+                                "25",
+                                "50",
+                                "100"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `IndexItemResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/IndexResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/categories/{category}": {
+            "put": {
+                "operationId": "shop.category.update",
+                "tags": [
+                    "Category"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "The category ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.Shop.Http.Requests.Category.UpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.category.show",
+                "tags": [
+                    "Category"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "The category ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`ShowResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/ShowResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "shop.category.destroy",
+                "tags": [
+                    "Category"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "The category ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/categories/{category}/edit": {
+            "get": {
+                "operationId": "shop.category.edit",
+                "tags": [
+                    "Category"
+                ],
+                "parameters": [
+                    {
+                        "name": "category",
+                        "in": "path",
+                        "required": true,
+                        "description": "The category ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/options/shop/category": {
+            "get": {
+                "operationId": "shop.category.options",
+                "tags": [
+                    "CategoryOptions"
+                ],
+                "parameters": [
+                    {
+                        "name": "for",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `OptionResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/OptionCollection"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "description": "Error overview."
+                                        }
+                                    },
+                                    "required": [
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/me": {
+            "get": {
+                "operationId": "user.administrator.show.profile",
+                "tags": [
+                    "Me"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`ProfileResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/ProfileResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/me/profile": {
+            "put": {
+                "operationId": "user.administrator.update.profile",
+                "tags": [
+                    "Me"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateProfileRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`ProfileResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/ProfileResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/administrator/me/password": {
+            "put": {
+                "operationId": "user.administrator.update.password",
+                "tags": [
+                    "Me"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePasswordRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`BaseResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/BaseResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            }
+        },
+        "/options/polymorphic": {
+            "get": {
+                "operationId": "polymorphic-options",
+                "tags": [
+                    "PolymorphicOptions"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "for",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `OptionResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/OptionCollection"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "description": "Error overview."
+                                        }
+                                    },
+                                    "required": [
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/products": {
+            "post": {
+                "operationId": "shop.product.store",
+                "tags": [
+                    "Product"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.Shop.Http.Requests.Product.StoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Product.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Product.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.product.index",
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "on_sale",
+                                "off_sale"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "free_shipping",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "enum": [
+                                "10",
+                                "25",
+                                "50",
+                                "100"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `Modules.Shop.Transformers.Product.IndexItemResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Product.IndexResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/products/{product}": {
+            "put": {
+                "operationId": "shop.product.update",
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "description": "The product ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.Shop.Http.Requests.Product.UpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Product.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Product.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "shop.product.show",
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "description": "The product ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Product.ShowResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Product.ShowResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "shop.product.destroy",
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "description": "The product ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/products/{product}/edit": {
+            "get": {
+                "operationId": "shop.product.edit",
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "product",
+                        "in": "path",
+                        "required": true,
+                        "description": "The product ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.Shop.Transformers.Product.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Product.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/roles": {
+            "post": {
+                "operationId": "user.role.store",
+                "tags": [
+                    "Role"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.User.Http.Requests.Role.StoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Role.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Role.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "user.role.index",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "\u89d2\u8272\u540d\u79f0",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u9875\u7801",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "description": "\u5206\u9875\u5927\u5c0f",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "enum": [
+                                "10",
+                                "25",
+                                "50",
+                                "100"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u6392\u5e8f",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `Modules.User.Transformers.Role.IndexItemResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Role.IndexResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/roles/{role}": {
+            "put": {
+                "operationId": "user.role.update",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "required": true,
+                        "description": "The role ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.User.Http.Requests.Role.UpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Role.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Role.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "user.role.show",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "required": true,
+                        "description": "The role ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Role.ShowResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Role.ShowResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "user.role.destroy",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "required": true,
+                        "description": "The role ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/roles/{role}/edit": {
+            "get": {
+                "operationId": "user.role.edit",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "required": true,
+                        "description": "The role ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.Role.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.Role.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/roles/{role}/permissions": {
+            "put": {
+                "operationId": "user.role.update.permissions",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "required": true,
+                        "description": "The role ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionsRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`PermissionsResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/PermissionsResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "user.role.edit.permissions",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "required": true,
+                        "description": "The role ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`PermissionsResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/PermissionsResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/upload": {
+            "post": {
+                "operationId": "upload",
+                "tags": [
+                    "Upload"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary",
+                                        "contentMediaType": "application/octet-stream",
+                                        "maxLength": 10240
+                                    }
+                                },
+                                "required": [
+                                    "file"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "key": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "key",
+                                        "url"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/users": {
+            "post": {
+                "operationId": "user.user.store",
+                "tags": [
+                    "User"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.User.Http.Requests.User.StoreRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.User.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.User.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "user.user.index",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "\u8d26\u53f7",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nickname",
+                        "in": "query",
+                        "description": "\u6635\u79f0",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "\u7528\u6237\u72b6\u6001",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "active",
+                                "disabled"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "\u9875\u7801",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "description": "\u5206\u9875\u5927\u5c0f",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "enum": [
+                                "10",
+                                "25",
+                                "50",
+                                "100"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "\u6392\u5e8f",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `Modules.User.Transformers.User.IndexItemResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.User.IndexResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/users/{user}": {
+            "put": {
+                "operationId": "user.user.update",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "description": "The user ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Modules.User.Http.Requests.User.UpdateRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.User.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.User.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "user.user.show",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "description": "The user ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.User.ShowResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.User.ShowResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "user.user.destroy",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "description": "The user ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/users/{user}/edit": {
+            "get": {
+                "operationId": "user.user.edit",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "description": "The user ID",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "`Modules.User.Transformers.User.FormResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Modules.User.Transformers.User.FormResource"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BaseResource": {
+                "type": "object",
+                "additionalProperties": {},
+                "title": "BaseResource"
+            },
+            "FormResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u5206\u7c7b\u540d\u79f0"
+                    },
+                    "parent_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ],
+                        "description": "\u7236\u5206\u7c7b"
+                    },
+                    "sort_order": {
+                        "type": "integer",
+                        "description": "\u6392\u5e8f"
+                    },
+                    "icon": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u56fe\u6807"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "parent_id",
+                    "sort_order",
+                    "icon"
+                ],
+                "title": "FormResource"
+            },
+            "IndexItemResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u5206\u7c7b\u540d\u79f0"
+                    },
+                    "parent_id": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "description": "\u7236\u5206\u7c7b",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ]
+                    },
+                    "sort_order": {
+                        "type": "integer",
+                        "description": "\u6392\u5e8f"
+                    },
+                    "icon": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u56fe\u6807"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "parent_id",
+                    "sort_order",
+                    "icon"
+                ],
+                "title": "IndexItemResource"
+            },
+            "IndexResource": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IndexItemResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "IndexResource"
+            },
+            "LoginRequest": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "\u5bc6\u7801"
+                    }
+                },
+                "required": [
+                    "account",
+                    "password"
+                ],
+                "title": "LoginRequest"
+            },
+            "LoginResource": {
+                "type": "object",
+                "properties": {
+                    "administrator": {
+                        "description": "\u7ba1\u7406\u5458",
+                        "$ref": "#/components/schemas/ProfileResource"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "description": "\u6743\u9650",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "token": {
+                        "type": "string",
+                        "description": "\u7528\u6237Token"
+                    }
+                },
+                "required": [
+                    "administrator",
+                    "permissions",
+                    "token"
+                ],
+                "title": "LoginResource"
+            },
+            "Modules.Shop.Http.Requests.Athlete.StoreRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "male",
+                            "female"
+                        ]
+                    },
+                    "height": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "minimum": 0.5,
+                        "maximum": 2.5
+                    },
+                    "weight": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "minimum": 20,
+                        "maximum": 200
+                    },
+                    "birthday": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 1024
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "title": "Modules.Shop.Http.Requests.Athlete.StoreRequest"
+            },
+            "Modules.Shop.Http.Requests.Athlete.UpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "male",
+                            "female"
+                        ]
+                    },
+                    "height": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "minimum": 0.5,
+                        "maximum": 2.5
+                    },
+                    "weight": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "minimum": 20,
+                        "maximum": 200
+                    },
+                    "birthday": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 1024
+                    }
+                },
+                "title": "Modules.Shop.Http.Requests.Athlete.UpdateRequest"
+            },
+            "Modules.Shop.Http.Requests.Category.StoreRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 191
+                    },
+                    "parent_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "sort_order": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9999
+                    },
+                    "icon": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    }
+                },
+                "required": [
+                    "name",
+                    "sort_order"
+                ],
+                "title": "Modules.Shop.Http.Requests.Category.StoreRequest"
+            },
+            "Modules.Shop.Http.Requests.Category.UpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 191
+                    },
+                    "parent_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "sort_order": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ],
+                        "minimum": 0,
+                        "maximum": 9999
+                    },
+                    "icon": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    }
+                },
+                "title": "Modules.Shop.Http.Requests.Category.UpdateRequest"
+            },
+            "Modules.Shop.Http.Requests.Product.StoreRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "price": {
+                        "type": "number",
+                        "minimum": 0.01,
+                        "maximum": 999999.99
+                    },
+                    "stock": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10000
+                    },
+                    "category_id": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "on_sale",
+                            "off_sale"
+                        ]
+                    },
+                    "cover_image": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    },
+                    "free_shipping": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "detailed_information": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "on_sale_time": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "production_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "spokesperson_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "spokesperson_type": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "Modules\\Shop\\Models\\Actor",
+                            "Modules\\Shop\\Models\\Athlete"
+                        ]
+                    },
+                    "photos": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "maxLength": 255
+                        }
+                    },
+                    "label": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "best_seller",
+                                "new",
+                                "recommend",
+                                "promotion"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "price",
+                    "stock",
+                    "category_id",
+                    "status"
+                ],
+                "title": "Modules.Shop.Http.Requests.Product.StoreRequest"
+            },
+            "Modules.Shop.Http.Requests.Product.UpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "price": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "minimum": 0.01,
+                        "maximum": 999999.99
+                    },
+                    "stock": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ],
+                        "minimum": 0,
+                        "maximum": 10000
+                    },
+                    "category_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "status": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "on_sale",
+                            "off_sale"
+                        ]
+                    },
+                    "cover_image": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    },
+                    "free_shipping": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "detailed_information": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "on_sale_time": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "production_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "spokesperson_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ]
+                    },
+                    "spokesperson_type": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "Modules\\Shop\\Models\\Actor",
+                            "Modules\\Shop\\Models\\Athlete"
+                        ]
+                    },
+                    "photos": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "maxLength": 255
+                        }
+                    },
+                    "label": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "best_seller",
+                                "new",
+                                "recommend",
+                                "promotion"
+                            ]
+                        }
+                    }
+                },
+                "title": "Modules.Shop.Http.Requests.Product.UpdateRequest"
+            },
+            "Modules.Shop.Transformers.Actor.FormResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u6f14\u5458\u540d\u79f0"
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6027\u522b"
+                    },
+                    "birth_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u51fa\u751f\u65e5\u671f"
+                    },
+                    "nationality": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u56fd\u7c4d"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf"
+                    },
+                    "biography": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u7b80\u4ecb"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "gender",
+                    "birth_date",
+                    "nationality",
+                    "avatar",
+                    "biography"
+                ],
+                "title": "Modules.Shop.Transformers.Actor.FormResource"
+            },
+            "Modules.Shop.Transformers.Actor.IndexItemResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u6f14\u5458\u540d\u79f0"
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6027\u522b"
+                    },
+                    "nationality": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u56fd\u7c4d"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "gender",
+                    "nationality",
+                    "avatar"
+                ],
+                "title": "Modules.Shop.Transformers.Actor.IndexItemResource"
+            },
+            "Modules.Shop.Transformers.Actor.IndexResource": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Actor.IndexItemResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "Modules.Shop.Transformers.Actor.IndexResource"
+            },
+            "Modules.Shop.Transformers.Actor.ShowResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u6f14\u5458\u540d\u79f0"
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6027\u522b"
+                    },
+                    "birth_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u51fa\u751f\u65e5\u671f"
+                    },
+                    "nationality": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u56fd\u7c4d"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf"
+                    },
+                    "biography": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u7b80\u4ecb"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "gender",
+                    "birth_date",
+                    "nationality",
+                    "avatar",
+                    "biography"
+                ],
+                "title": "Modules.Shop.Transformers.Actor.ShowResource"
+            },
+            "Modules.Shop.Transformers.Athlete.FormResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u59d3\u540d"
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6027\u522b"
+                    },
+                    "height": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "description": "\u8eab\u9ad8"
+                    },
+                    "weight": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "description": "\u4f53\u91cd"
+                    },
+                    "birthday": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u51fa\u751f\u65e5\u671f"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "gender",
+                    "height",
+                    "weight",
+                    "birthday",
+                    "avatar"
+                ],
+                "title": "Modules.Shop.Transformers.Athlete.FormResource"
+            },
+            "Modules.Shop.Transformers.Athlete.IndexItemResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u59d3\u540d"
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6027\u522b"
+                    },
+                    "height": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "description": "\u8eab\u9ad8"
+                    },
+                    "weight": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "description": "\u4f53\u91cd"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "gender",
+                    "height",
+                    "weight",
+                    "avatar"
+                ],
+                "title": "Modules.Shop.Transformers.Athlete.IndexItemResource"
+            },
+            "Modules.Shop.Transformers.Athlete.IndexResource": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Athlete.IndexItemResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "Modules.Shop.Transformers.Athlete.IndexResource"
+            },
+            "Modules.Shop.Transformers.Athlete.ShowResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u59d3\u540d"
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6027\u522b"
+                    },
+                    "height": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "description": "\u8eab\u9ad8"
+                    },
+                    "weight": {
+                        "type": [
+                            "number",
+                            "null"
+                        ],
+                        "description": "\u4f53\u91cd"
+                    },
+                    "birthday": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u51fa\u751f\u65e5\u671f"
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "gender",
+                    "height",
+                    "weight",
+                    "birthday",
+                    "avatar"
+                ],
+                "title": "Modules.Shop.Transformers.Athlete.ShowResource"
+            },
+            "Modules.Shop.Transformers.Product.FormResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u4ea7\u54c1\u540d\u79f0"
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u4ea7\u54c1\u63cf\u8ff0"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": "\u4ef7\u683c"
+                    },
+                    "stock": {
+                        "type": "integer",
+                        "description": "\u5e93\u5b58"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "description": "\u5206\u7c7b"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "\u4ea7\u54c1\u72b6\u6001"
+                    },
+                    "photos": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "description": "\u7ec4\u56fe",
+                        "items": {}
+                    },
+                    "label": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "description": "\u6807\u7b7e",
+                        "items": {}
+                    },
+                    "cover_image": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5c01\u9762\u56fe"
+                    },
+                    "free_shipping": {
+                        "type": "boolean",
+                        "description": "\u5305\u90ae"
+                    },
+                    "detailed_information": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u8be6\u7ec6\u4fe1\u606f"
+                    },
+                    "on_sale_time": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u4e0a\u67b6\u65f6\u95f4"
+                    },
+                    "production_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u751f\u4ea7\u65e5\u671f"
+                    },
+                    "spokesperson_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ],
+                        "description": "\u4ee3\u8a00\u4eba"
+                    },
+                    "spokesperson_type": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u4ee3\u8a00\u4eba\u7c7b\u578b"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "price",
+                    "stock",
+                    "category_id",
+                    "status",
+                    "photos",
+                    "label",
+                    "cover_image",
+                    "free_shipping",
+                    "detailed_information",
+                    "on_sale_time",
+                    "production_date",
+                    "spokesperson_id",
+                    "spokesperson_type"
+                ],
+                "title": "Modules.Shop.Transformers.Product.FormResource"
+            },
+            "Modules.Shop.Transformers.Product.IndexItemResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u4ea7\u54c1\u540d\u79f0"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": "\u4ef7\u683c"
+                    },
+                    "stock": {
+                        "type": "integer",
+                        "description": "\u5e93\u5b58"
+                    },
+                    "category_id": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "description": "\u5206\u7c7b",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "\u4ea7\u54c1\u72b6\u6001"
+                    },
+                    "cover_image": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5c01\u9762\u56fe"
+                    },
+                    "free_shipping": {
+                        "type": "boolean",
+                        "description": "\u5305\u90ae"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "price",
+                    "stock",
+                    "category_id",
+                    "status",
+                    "cover_image",
+                    "free_shipping"
+                ],
+                "title": "Modules.Shop.Transformers.Product.IndexItemResource"
+            },
+            "Modules.Shop.Transformers.Product.IndexResource": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Modules.Shop.Transformers.Product.IndexItemResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "Modules.Shop.Transformers.Product.IndexResource"
+            },
+            "Modules.Shop.Transformers.Product.ShowResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u4ea7\u54c1\u540d\u79f0"
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u4ea7\u54c1\u63cf\u8ff0"
+                    },
+                    "price": {
+                        "type": "number",
+                        "description": "\u4ef7\u683c"
+                    },
+                    "stock": {
+                        "type": "integer",
+                        "description": "\u5e93\u5b58"
+                    },
+                    "category_id": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "description": "\u5206\u7c7b",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ]
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "\u4ea7\u54c1\u72b6\u6001"
+                    },
+                    "photos": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "description": "\u7ec4\u56fe",
+                        "items": {}
+                    },
+                    "label": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "description": "\u6807\u7b7e",
+                        "items": {}
+                    },
+                    "cover_image": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5c01\u9762\u56fe"
+                    },
+                    "free_shipping": {
+                        "type": "boolean",
+                        "description": "\u5305\u90ae"
+                    },
+                    "detailed_information": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u8be6\u7ec6\u4fe1\u606f"
+                    },
+                    "on_sale_time": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u4e0a\u67b6\u65f6\u95f4"
+                    },
+                    "production_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u751f\u4ea7\u65e5\u671f"
+                    },
+                    "spokesperson_id": {
+                        "type": [
+                            "integer",
+                            "null"
+                        ],
+                        "description": "\u4ee3\u8a00\u4eba"
+                    },
+                    "spokesperson_type": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u4ee3\u8a00\u4eba\u7c7b\u578b"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "description",
+                    "price",
+                    "stock",
+                    "category_id",
+                    "status",
+                    "photos",
+                    "label",
+                    "cover_image",
+                    "free_shipping",
+                    "detailed_information",
+                    "on_sale_time",
+                    "production_date",
+                    "spokesperson_id",
+                    "spokesperson_type"
+                ],
+                "title": "Modules.Shop.Transformers.Product.ShowResource"
+            },
+            "Modules.User.Http.Requests.Administrator.StoreRequest": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "\u8d26\u53f7",
+                        "minLength": 3,
+                        "maxLength": 50
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "\u5bc6\u7801",
+                        "minLength": 6
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0",
+                        "minLength": 1,
+                        "maxLength": 30
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf",
+                        "maxLength": 255
+                    }
+                },
+                "required": [
+                    "account",
+                    "password",
+                    "nickname",
+                    "avatar"
+                ],
+                "title": "Modules.User.Http.Requests.Administrator.StoreRequest"
+            },
+            "Modules.User.Http.Requests.Administrator.UpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "email",
+                        "description": "\u8d26\u53f7",
+                        "minLength": 3,
+                        "maxLength": 50
+                    },
+                    "nickname": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6635\u79f0",
+                        "minLength": 1,
+                        "maxLength": 30
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf",
+                        "maxLength": 255
+                    }
+                },
+                "title": "Modules.User.Http.Requests.Administrator.UpdateRequest"
+            },
+            "Modules.User.Http.Requests.Role.StoreRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "\u89d2\u8272\u540d\u79f0",
+                        "minLength": 2,
+                        "maxLength": 30
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "title": "Modules.User.Http.Requests.Role.StoreRequest"
+            },
+            "Modules.User.Http.Requests.Role.UpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u89d2\u8272\u540d\u79f0",
+                        "minLength": 2,
+                        "maxLength": 30
+                    }
+                },
+                "title": "Modules.User.Http.Requests.Role.UpdateRequest"
+            },
+            "Modules.User.Http.Requests.User.StoreRequest": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "format": "email",
+                        "description": "\u8d26\u53f7",
+                        "minLength": 3,
+                        "maxLength": 50
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "\u5bc6\u7801",
+                        "minLength": 6
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0",
+                        "minLength": 1,
+                        "maxLength": 30
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf",
+                        "maxLength": 255
+                    },
+                    "status": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u7528\u6237\u72b6\u6001",
+                        "enum": [
+                            "active",
+                            "disabled"
+                        ]
+                    }
+                },
+                "required": [
+                    "username",
+                    "password",
+                    "nickname",
+                    "avatar"
+                ],
+                "title": "Modules.User.Http.Requests.User.StoreRequest"
+            },
+            "Modules.User.Http.Requests.User.UpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "email",
+                        "description": "\u8d26\u53f7",
+                        "minLength": 3,
+                        "maxLength": 50
+                    },
+                    "nickname": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6635\u79f0",
+                        "minLength": 1,
+                        "maxLength": 30
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf",
+                        "maxLength": 255
+                    },
+                    "status": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u7528\u6237\u72b6\u6001",
+                        "enum": [
+                            "active",
+                            "disabled"
+                        ]
+                    }
+                },
+                "title": "Modules.User.Http.Requests.User.UpdateRequest"
+            },
+            "Modules.User.Transformers.Administrator.FormResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "id",
+                    "account",
+                    "nickname",
+                    "avatar"
+                ],
+                "title": "Modules.User.Transformers.Administrator.FormResource"
+            },
+            "Modules.User.Transformers.Administrator.IndexItemResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "id",
+                    "account",
+                    "nickname",
+                    "avatar"
+                ],
+                "title": "Modules.User.Transformers.Administrator.IndexItemResource"
+            },
+            "Modules.User.Transformers.Administrator.IndexResource": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Modules.User.Transformers.Administrator.IndexItemResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "Modules.User.Transformers.Administrator.IndexResource"
+            },
+            "Modules.User.Transformers.Administrator.ShowResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "id",
+                    "account",
+                    "nickname",
+                    "avatar"
+                ],
+                "title": "Modules.User.Transformers.Administrator.ShowResource"
+            },
+            "Modules.User.Transformers.Role.FormResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u89d2\u8272\u540d\u79f0"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "title": "Modules.User.Transformers.Role.FormResource"
+            },
+            "Modules.User.Transformers.Role.IndexItemResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u89d2\u8272\u540d\u79f0"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "title": "Modules.User.Transformers.Role.IndexItemResource"
+            },
+            "Modules.User.Transformers.Role.IndexResource": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Modules.User.Transformers.Role.IndexItemResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "Modules.User.Transformers.Role.IndexResource"
+            },
+            "Modules.User.Transformers.Role.ShowResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u89d2\u8272\u540d\u79f0"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name"
+                ],
+                "title": "Modules.User.Transformers.Role.ShowResource"
+            },
+            "Modules.User.Transformers.User.FormResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "\u7528\u6237\u72b6\u6001"
+                    }
+                },
+                "required": [
+                    "id",
+                    "username",
+                    "nickname",
+                    "avatar",
+                    "status"
+                ],
+                "title": "Modules.User.Transformers.User.FormResource"
+            },
+            "Modules.User.Transformers.User.IndexItemResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "\u7528\u6237\u72b6\u6001"
+                    }
+                },
+                "required": [
+                    "id",
+                    "username",
+                    "nickname",
+                    "avatar",
+                    "status"
+                ],
+                "title": "Modules.User.Transformers.User.IndexItemResource"
+            },
+            "Modules.User.Transformers.User.IndexResource": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Modules.User.Transformers.User.IndexItemResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "Modules.User.Transformers.User.IndexResource"
+            },
+            "Modules.User.Transformers.User.ShowResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "\u7528\u6237\u72b6\u6001"
+                    }
+                },
+                "required": [
+                    "id",
+                    "username",
+                    "nickname",
+                    "avatar",
+                    "status"
+                ],
+                "title": "Modules.User.Transformers.User.ShowResource"
+            },
+            "OptionCollection": {
+                "type": "object",
+                "properties": {
+                    "rows": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OptionResource"
+                        }
+                    },
+                    "total": {
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "rows",
+                    "total"
+                ],
+                "title": "OptionCollection"
+            },
+            "OptionResource": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "label": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "string",
+                                "enum": [
+                                    ""
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "value",
+                    "label"
+                ],
+                "title": "OptionResource"
+            },
+            "PermissionsRequest": {
+                "type": "object",
+                "properties": {
+                    "permissions": {
+                        "type": "array",
+                        "description": "\u6743\u9650",
+                        "items": {
+                            "type": "string"
+                        },
+                        "minItems": 1
+                    }
+                },
+                "required": [
+                    "permissions"
+                ],
+                "title": "PermissionsRequest"
+            },
+            "PermissionsResource": {
+                "type": "object",
+                "properties": {
+                    "permissions": {
+                        "type": "array",
+                        "description": "\u89d2\u8272",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "permissions"
+                ],
+                "title": "PermissionsResource"
+            },
+            "ProfileResource": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": "string",
+                        "description": "\u8d26\u53f7"
+                    },
+                    "nickname": {
+                        "type": "string",
+                        "description": "\u6635\u79f0"
+                    },
+                    "avatar": {
+                        "type": "string",
+                        "description": "\u5934\u50cf"
+                    }
+                },
+                "required": [
+                    "account",
+                    "nickname",
+                    "avatar"
+                ],
+                "title": "ProfileResource"
+            },
+            "ShowResource": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "\u5206\u7c7b\u540d\u79f0"
+                    },
+                    "parent_id": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "description": "\u7236\u5206\u7c7b",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ]
+                    },
+                    "sort_order": {
+                        "type": "integer",
+                        "description": "\u6392\u5e8f"
+                    },
+                    "icon": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u56fe\u6807"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "parent_id",
+                    "sort_order",
+                    "icon"
+                ],
+                "title": "ShowResource"
+            },
+            "StoreRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "maxLength": 255
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "male",
+                            "female"
+                        ]
+                    },
+                    "birth_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "nationality": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 1024
+                    },
+                    "biography": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "required": [
+                    "name"
+                ],
+                "title": "StoreRequest"
+            },
+            "UpdatePasswordRequest": {
+                "type": "object",
+                "properties": {
+                    "old_password": {
+                        "type": "string",
+                        "description": "\u65e7\u5bc6\u7801"
+                    },
+                    "new_password": {
+                        "type": "string",
+                        "description": "\u65b0\u5bc6\u7801",
+                        "minLength": 6
+                    }
+                },
+                "required": [
+                    "old_password",
+                    "new_password"
+                ],
+                "title": "UpdatePasswordRequest"
+            },
+            "UpdateProfileRequest": {
+                "type": "object",
+                "properties": {
+                    "account": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "email",
+                        "description": "\u8d26\u53f7",
+                        "minLength": 3,
+                        "maxLength": 50
+                    },
+                    "nickname": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u6635\u79f0",
+                        "minLength": 1,
+                        "maxLength": 30
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "description": "\u5934\u50cf",
+                        "maxLength": 255
+                    }
+                },
+                "title": "UpdateProfileRequest"
+            },
+            "UpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    },
+                    "gender": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "enum": [
+                            "male",
+                            "female"
+                        ]
+                    },
+                    "birth_date": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "nationality": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 255
+                    },
+                    "avatar": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "maxLength": 1024
+                    },
+                    "biography": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "title": "UpdateRequest"
+            }
+        },
+        "responses": {
+            "ValidationException": {
+                "description": "Validation error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Errors overview."
+                                },
+                                "errors": {
+                                    "type": "object",
+                                    "description": "A detailed description of each field that failed validation.",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "message",
+                                "errors"
+                            ]
+                        }
+                    }
+                }
+            },
+            "AuthenticationException": {
+                "description": "Unauthenticated",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            },
+            "AuthorizationException": {
+                "description": "Authorization error",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            },
+            "ModelNotFoundException": {
+                "description": "Not found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

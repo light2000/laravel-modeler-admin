@@ -1,0 +1,50 @@
+{
+    "product_label": [
+        {
+            "value": "best_seller",
+            "label": "热卖"
+        },
+        {
+            "value": "new",
+            "label": "新品"
+        },
+        {
+            "value": "recommend",
+            "label": "推荐"
+        },
+        {
+            "value": "promotion",
+            "label": "促销"
+        }
+    ],
+    "product_status": [
+        {
+            "value": "on_sale",
+            "label": "上架"
+        },
+        {
+            "value": "off_sale",
+            "label": "下架"
+        }
+    ],
+    "user_status": [
+        {
+            "value": "active",
+            "label": "正常"
+        },
+        {
+            "value": "disabled",
+            "label": "禁用"
+        }
+    ],
+    "gender": [
+        {
+            "value": "male",
+            "label": "男"
+        },
+        {
+            "value": "female",
+            "label": "女"
+        }
+    ]
+}

@@ -1,0 +1,1179 @@
+{
+    "modules": [
+        {
+            "id": "01KRGDMQZGHMG04MQ3NVR6B4M1",
+            "name": "App",
+            "code": "app",
+            "description": "默认模块",
+            "namespaceId": "01KRGDMQY2PVDND7Y7PNR4508X"
+        },
+        {
+            "id": "01KRYZSXADXH4VZS48VKKYV90N",
+            "name": "用户",
+            "code": "user",
+            "description": "用户模组",
+            "items": [
+                {
+                    "id": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                    "name": "用户",
+                    "code": "user",
+                    "table": "users",
+                    "description": "前台用户",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 105,
+                    "y": 460,
+                    "attrs": [
+                        {
+                            "id": "01KRZ019S4GHZQE53H3GKEE9WP",
+                            "name": "用户名",
+                            "code": "username",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_USERNAME"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ019S4PCQK5SWX4WMS3WBT",
+                            "name": "密码",
+                            "code": "password",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_PASSWORD"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ019S4QDKH8FF5GVPJ4VCE",
+                            "name": "昵称",
+                            "code": "nickname",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_NICKNAME"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S416J613HEHG33Y4PH",
+                            "name": "邮箱",
+                            "code": "email",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_EMAIL"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S47PEEK9TVHG47TWCJ",
+                            "name": "手机号",
+                            "code": "phone",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_PHONE"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S449S0PHZZ8AN78QPC",
+                            "name": "头像",
+                            "code": "avatar",
+                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_AVATAR"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ019S4D3928KWYZ981Z53D",
+                            "name": "状态",
+                            "code": "status",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KRZ0126W9B2F7GBVPKKK1X74",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ019S43FQSCKA4PE5SSA0N",
+                            "name": "最后登录时间",
+                            "code": "last_login_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME",
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ019S4CQQXV9TT0TRA5VR0",
+                            "code": "idx_username",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ019S4GHZQE53H3GKEE9WP"
+                            ]
+                        },
+                        {
+                            "id": "01KRZ019S4220TAY3VK9JX80P1",
+                            "code": "idx_email",
+                            "attrIds": [
+                                "01KRZ019S416J613HEHG33Y4PH"
+                            ]
+                        },
+                        {
+                            "id": "01KRZ019S4ET3TWF6KJDW5WX12",
+                            "code": "idx_phone",
+                            "attrIds": [
+                                "01KRZ019S47PEEK9TVHG47TWCJ"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ0NKQK3JJEZ1ZPTX1E2JSE",
+                            "code": "token",
+                            "type": "ITEM_RELATION_TYPE_MORPH_MANY",
+                            "targetItemId": "01KRZ0J8HBRS644EJS22DG5ZDG",
+                            "attrId": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ0NESMZ068F0FZGEB3P4WD"
+                        },
+                        {
+                            "id": "01KRZ1SQRDGAD5PFA1JCRMWS4D",
+                            "code": "role",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO_MANY",
+                            "targetItemId": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                            "pivotId": "01KRZ1SFSEF14611KB5CJ8FKV9",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ1SFSEQ8B5QQ677DMHVCBR"
+                        },
+                        {
+                            "id": "01KS1SKDC7F8EPNH1ZASSA5FEX",
+                            "code": "permission",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO_MANY",
+                            "targetItemId": "01KRZ0DTBGSFZMN8REP4PD18TQ",
+                            "pivotId": "01KS1SKDC7NSMABP6NH3H3BAM1",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KS1SKDC76E6ZNNMECDQ5M0QC"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KRZ04880G08EG5THACMQNH4Y",
+                    "name": "管理员",
+                    "code": "administrator",
+                    "table": "administrators",
+                    "description": "管理员用户",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 732,
+                    "y": 789,
+                    "attrs": [
+                        {
+                            "id": "01KRZ048804FERZSAQ7MDPEBMJ",
+                            "name": "状态",
+                            "code": "status",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KRZ0126W9B2F7GBVPKKK1X74",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ04N4MQND74GR7JCKEK7Q7",
+                            "name": "邮箱",
+                            "code": "account",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KRZ05R80MP3YPFVGJF11RXTB",
+                            "name": "密码",
+                            "code": "password",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KRZ067XKCK1KSYCADQKH2G9Y",
+                            "name": "昵称",
+                            "code": "nickname",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KRZ072VK5WGJB4GBBPJ8TAQT",
+                            "name": "头像",
+                            "code": "avatar",
+                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ048808CBVT7A21T2JC5CK",
+                            "code": "idx_status",
+                            "attrIds": [
+                                "01KRZ048804FERZSAQ7MDPEBMJ"
+                            ]
+                        },
+                        {
+                            "id": "01KRZ06R9ZF2PHVGB5FX88FNFY",
+                            "code": "uniq_mailbox",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ04N4MQND74GR7JCKEK7Q7"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ0NESMGT3M6FWPCTD1ERN0",
+                            "code": "token",
+                            "type": "ITEM_RELATION_TYPE_MORPH_MANY",
+                            "targetItemId": "01KRZ0J8HBRS644EJS22DG5ZDG",
+                            "attrId": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ0NESMZ068F0FZGEB3P4WD"
+                        },
+                        {
+                            "id": "01KRZ1SFSE9CHEZ9XB95XPY1EX",
+                            "code": "role",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO_MANY",
+                            "targetItemId": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                            "pivotId": "01KRZ1SFSEF14611KB5CJ8FKV9",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KRZ1SFSEQ8B5QQ677DMHVCBR"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KRZ0DTBGSFZMN8REP4PD18TQ",
+                    "name": "权限",
+                    "code": "permission",
+                    "table": "permissions",
+                    "description": "权限配置",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 563,
+                    "y": 233,
+                    "attrs": [
+                        {
+                            "id": "01KRZ0DTBH03C1PNNEV1D1P0AY",
+                            "name": "权限标识",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ0DTBH32VSR3MXST3BBE86",
+                            "name": "所属GUARD",
+                            "code": "guard_name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ0EE0WKY79MZX3ZNQJ2Y37",
+                            "code": "uniq_name_guard_name",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ0DTBH03C1PNNEV1D1P0AY",
+                                "01KRZ0DTBH32VSR3MXST3BBE86"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KS1QH76J67JGWNCZ775WNAFT",
+                            "code": "roles",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO_MANY",
+                            "targetItemId": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                            "pivotId": "01KS1QH76HBD19SG06XFRWD7BG",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KS1QH76J3QDYMEAXJC76NQM4"
+                        },
+                        {
+                            "id": "01KS1SKDC76E6ZNNMECDQ5M0QC",
+                            "type": "ITEM_RELATION_TYPE_MORPHED_BY_MANY",
+                            "pivotId": "01KS1SKDC7NSMABP6NH3H3BAM1",
+                            "morphTargets": [
+                                {
+                                    "targetItemId": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                                    "code": "users",
+                                    "reverseRelationId": "01KS1SKDC7F8EPNH1ZASSA5FEX"
+                                }
+                            ],
+                            "isInternal": true
+                        }
+                    ]
+                },
+                {
+                    "id": "01KRZ0J8HBRS644EJS22DG5ZDG",
+                    "name": "Token",
+                    "code": "token",
+                    "table": "tokens",
+                    "description": "用户登录票据",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 340,
+                    "y": 793,
+                    "attrs": [
+                        {
+                            "id": "01KRZ0J8HBPE11GWS2NA7VZH1C",
+                            "name": "token值",
+                            "code": "token",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ0J8HBERFJ47YNAAG2KZMA",
+                            "name": "过期时间",
+                            "code": "expires_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ0J8HB746793KB0J85CD99",
+                            "name": "最后使用时间",
+                            "code": "last_used_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KRZ0JQ6920EXF6BDW5AAJ52P",
+                            "name": "Token名称",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KRZ0KAEVEVF717DC288ZMSFP",
+                            "name": "能力",
+                            "code": "abilities",
+                            "type": "ATTRIBUTE_TYPE_TEXT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_TEXT",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "name": "Tokenable ID",
+                            "code": "tokenable_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_ID"
+                        },
+                        {
+                            "id": "01KRZ0NKQKZYGKT3GDT7N2J7B0",
+                            "name": "Tokenable 类型",
+                            "code": "tokenable_type",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_TYPE"
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ0NESMZ068F0FZGEB3P4WD",
+                            "code": "tokenable",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO",
+                            "targetItemId": "01KRZ04880G08EG5THACMQNH4Y",
+                            "attrId": "01KRZ0KZA51B218W7BZHJQH9EZ",
+                            "morphTargets": [
+                                {
+                                    "targetItemId": "01KRZ04880G08EG5THACMQNH4Y",
+                                    "reverseRelationId": "01KRZ0NESMGT3M6FWPCTD1ERN0"
+                                },
+                                {
+                                    "targetItemId": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                                    "reverseRelationId": "01KRZ0NKQK3JJEZ1ZPTX1E2JSE"
+                                }
+                            ],
+                            "isInternal": true
+                        }
+                    ]
+                },
+                {
+                    "id": "01KRZ1Q7JGCCNYE1X5ZVSMEWA7",
+                    "name": "角色",
+                    "code": "role",
+                    "table": "roles",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 676,
+                    "y": 509,
+                    "attrs": [
+                        {
+                            "id": "01KRZ1Q7JGNDJ62KEP1HS8MGR0",
+                            "name": "角色名称",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KRZ1Q7JG3B4MDP4F3WSDJ0WQ",
+                            "name": "角色GUARD",
+                            "code": "guard_name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KRZ1Q7JHN6Q5NB2NQWJJ6CDC",
+                            "code": "idx_name",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KRZ1Q7JGNDJ62KEP1HS8MGR0"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KRZ1SFSEQ8B5QQ677DMHVCBR",
+                            "type": "ITEM_RELATION_TYPE_MORPHED_BY_MANY",
+                            "pivotId": "01KRZ1SFSEF14611KB5CJ8FKV9",
+                            "morphTargets": [
+                                {
+                                    "targetItemId": "01KRZ04880G08EG5THACMQNH4Y",
+                                    "code": "administrators",
+                                    "reverseRelationId": "01KRZ1SFSE9CHEZ9XB95XPY1EX"
+                                },
+                                {
+                                    "targetItemId": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                                    "code": "users",
+                                    "reverseRelationId": "01KRZ1SQRDGAD5PFA1JCRMWS4D"
+                                }
+                            ],
+                            "isInternal": true
+                        },
+                        {
+                            "id": "01KS1QH76J3QDYMEAXJC76NQM4",
+                            "code": "permissions",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO_MANY",
+                            "targetItemId": "01KRZ0DTBGSFZMN8REP4PD18TQ",
+                            "pivotId": "01KS1QH76HBD19SG06XFRWD7BG",
+                            "isInternal": true,
+                            "reverseRelationId": "01KS1QH76J67JGWNCZ775WNAFT"
+                        }
+                    ]
+                }
+            ],
+            "namespaceId": "01KRGDMQYENQF60DZM3N5NPJY5"
+        },
+        {
+            "id": "01KSGY4G1CT0VGK41185QC1YD4",
+            "name": "商城",
+            "code": "shop",
+            "items": [
+                {
+                    "id": "01KSGYCDNCXBT2BKFXM73XGHX1",
+                    "name": "分类",
+                    "code": "category",
+                    "table": "categories",
+                    "description": "商品分类",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 1253,
+                    "y": 159,
+                    "attrs": [
+                        {
+                            "id": "01KSGYCDNCMTYTWKVTD9ZT4DJ7",
+                            "name": "分类名称",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_NAME"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KSGYCDNCFDWTMB590QNK0PCG",
+                            "name": "父分类",
+                            "code": "parent_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "nullable": true,
+                            "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                        },
+                        {
+                            "id": "01KSGYCDNC1PB9D1VS2CAH9FGD",
+                            "name": "排序",
+                            "code": "sort_order",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "fakeMin": "0",
+                            "fakeMax": "9999"
+                        },
+                        {
+                            "id": "01KSGYCDNCFNCDQBZ62HF45Y3R",
+                            "name": "图标",
+                            "code": "icon",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_IMAGE"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KSGYCDNCADN8NF0GV9X2JX6Q",
+                            "code": "idx_name",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KSGYCDNCMTYTWKVTD9ZT4DJ7"
+                            ]
+                        },
+                        {
+                            "id": "01KSGYCDNCGXS3T1WYYXQDA95M",
+                            "code": "idx_parent_id",
+                            "attrIds": [
+                                "01KSGYCDNCFDWTMB590QNK0PCG"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KSGYZ2Z815NVQ9PJS7YKA08G",
+                            "code": "parent",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO",
+                            "targetItemId": "01KSGYCDNCXBT2BKFXM73XGHX1",
+                            "attrId": "01KSGYCDNCFDWTMB590QNK0PCG",
+                            "isInternal": true,
+                            "reverseRelationId": "01KSGYZ2Z8XEGY2QXXZFR9N16E"
+                        },
+                        {
+                            "id": "01KSGYZ2Z8XEGY2QXXZFR9N16E",
+                            "code": "children",
+                            "type": "ITEM_RELATION_TYPE_HAS_MANY",
+                            "targetItemId": "01KSGYCDNCXBT2BKFXM73XGHX1",
+                            "attrId": "01KSGYCDNCFDWTMB590QNK0PCG",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KSGYZ2Z815NVQ9PJS7YKA08G"
+                        },
+                        {
+                            "id": "01KSGZ567Y6VV13214HY1VBRTH",
+                            "code": "products",
+                            "type": "ITEM_RELATION_TYPE_HAS_MANY",
+                            "targetItemId": "01KSGZ567X9XHA4M7CK2EFMP24",
+                            "attrId": "01KSGZ567XGEPRFQ9MSKR42DH9",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KSGZ567Y12SC5TBH2CA1C069"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KSGZ567X9XHA4M7CK2EFMP24",
+                    "name": "产品",
+                    "code": "product",
+                    "table": "products",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 1235,
+                    "y": 423,
+                    "attrs": [
+                        {
+                            "id": "01KSGZ567XPTV30QN3XVKW1VBE",
+                            "name": "产品名称",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KSGZ567XGJHZ3E4KBMS6RD9W",
+                            "name": "产品描述",
+                            "code": "description",
+                            "type": "ATTRIBUTE_TYPE_TEXT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_TEXT",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KSGZ567XH6P3RRMASYZZVB92",
+                            "name": "价格",
+                            "code": "price",
+                            "type": "ATTRIBUTE_TYPE_DECIMAL",
+                            "precision": 10,
+                            "scale": 2,
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DECIMAL",
+                            "fakeMin": "0.01",
+                            "fakeMax": "999999.99"
+                        },
+                        {
+                            "id": "01KSGZ567XD258WHZQRSNSP84P",
+                            "name": "库存",
+                            "code": "stock",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "fakeMin": "0",
+                            "fakeMax": "10000"
+                        },
+                        {
+                            "id": "01KSGZ567XGEPRFQ9MSKR42DH9",
+                            "name": "分类ID",
+                            "code": "category_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                        },
+                        {
+                            "id": "01KSGZ567X2BJKY79D4MKXY22Q",
+                            "name": "产品状态",
+                            "code": "status",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KSGZ501RBVFSMMPVK5JHXE5F",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KSGZ9QTW30EWD3S1Q86475F0",
+                            "name": "组图",
+                            "code": "photos",
+                            "type": "ATTRIBUTE_TYPE_FILES",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_JSON",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KSGZFKD4ANV813MAGX8MV8CP",
+                            "name": "标签",
+                            "code": "label",
+                            "type": "ATTRIBUTE_TYPE_SETS",
+                            "dictId": "01KSGZBAG8JC3ZQJF950FSMA1Z",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_JSON",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KSGZGASPT41AK9BV6QDDYJ6Y",
+                            "name": "封面图",
+                            "code": "cover_image",
+                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KSGZRB913AQHPJSYH298HS3R",
+                            "name": "包邮",
+                            "code": "free_shipping",
+                            "type": "ATTRIBUTE_TYPE_BOOL",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_TINYINT",
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_VALUE",
+                            "defaultValue": "false"
+                        },
+                        {
+                            "id": "01KSGZTKNTD0VR42BCMZ5NS9BP",
+                            "name": "详细信息",
+                            "code": "detailed_information",
+                            "type": "ATTRIBUTE_TYPE_LONG_TEXT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_MEDIUMTEXT",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KSGZVWG0PG0T21N4WG52RDH9",
+                            "name": "上架时间",
+                            "code": "on_sale_time",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KSGZYZZ59WQ15JWQWVP3CXTK",
+                            "name": "生产日期",
+                            "code": "production_date",
+                            "type": "ATTRIBUTE_TYPE_DATE",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATE",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL"
+                        },
+                        {
+                            "id": "01KSH06PKABDRMXW4GP2WSVBJJ",
+                            "name": "代言人",
+                            "code": "spokesperson_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_ID"
+                        },
+                        {
+                            "id": "01KSH08CB29A59SVR6ZGR70BEN",
+                            "name": "代言人类型",
+                            "code": "spokesperson_type",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true,
+                            "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_TYPE"
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KSGZ567XS4ZM18459AGV8JHY",
+                            "code": "idx_category_id",
+                            "attrIds": [
+                                "01KSGZ567XGEPRFQ9MSKR42DH9"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KSGZ567Y12SC5TBH2CA1C069",
+                            "code": "category",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO",
+                            "targetItemId": "01KSGYCDNCXBT2BKFXM73XGHX1",
+                            "attrId": "01KSGZ567XGEPRFQ9MSKR42DH9",
+                            "isInternal": true,
+                            "reverseRelationId": "01KSGZ567Y6VV13214HY1VBRTH"
+                        },
+                        {
+                            "id": "01KSH0826K0YMRVXSRHH1HFG86",
+                            "code": "spokesperson",
+                            "type": "ITEM_RELATION_TYPE_MORPH_TO",
+                            "targetItemId": "01KSH02X5NZABN8ZMCMPVKEK5P",
+                            "attrId": "01KSH06PKABDRMXW4GP2WSVBJJ",
+                            "morphTargets": [
+                                {
+                                    "targetItemId": "01KSH02X5NZABN8ZMCMPVKEK5P",
+                                    "reverseRelationId": "01KSH0826K33TKN2BPDNC46T6K"
+                                },
+                                {
+                                    "targetItemId": "01KSH01M5D6YWEVJ5R6DEJ9TGJ",
+                                    "reverseRelationId": "01KSH08CB2PGN9HVQ9BQBZY3C1"
+                                }
+                            ],
+                            "isInternal": true
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KSH01M5D6YWEVJ5R6DEJ9TGJ",
+                    "name": "演员",
+                    "code": "actor",
+                    "table": "actors",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 973,
+                    "y": 529,
+                    "attrs": [
+                        {
+                            "id": "01KSH01M5DEV3PB33SK4MDJBN4",
+                            "name": "演员名称",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_NAME"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KSH01M5DM6C63QBSTBNHXWR1",
+                            "name": "性别",
+                            "code": "gender",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KSH01DQTVN5HXMTYAERJGXW0",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KSH01M5DXWCD9M173A1ZQK2N",
+                            "name": "出生日期",
+                            "code": "birth_date",
+                            "type": "ATTRIBUTE_TYPE_DATE",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATE",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KSH01M5D2TPXJ9BZJ1ZMV39P",
+                            "name": "国籍",
+                            "code": "nationality",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_COUNTRY"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KSH01M5DN2R82895VM1YAANC",
+                            "name": "头像",
+                            "code": "avatar",
+                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_AVATAR"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KSH01M5D1R84ARB00X6W0FCR",
+                            "name": "简介",
+                            "code": "biography",
+                            "type": "ATTRIBUTE_TYPE_TEXT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_TEXT",
+                            "nullable": true
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KSH08CB2PGN9HVQ9BQBZY3C1",
+                            "code": "product",
+                            "type": "ITEM_RELATION_TYPE_MORPH_MANY",
+                            "targetItemId": "01KSGZ567X9XHA4M7CK2EFMP24",
+                            "attrId": "01KSH06PKABDRMXW4GP2WSVBJJ",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KSH0826K0YMRVXSRHH1HFG86"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KSH02X5NZABN8ZMCMPVKEK5P",
+                    "name": "运动员",
+                    "code": "athlete",
+                    "table": "athletes",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 1039,
+                    "y": 963,
+                    "attrs": [
+                        {
+                            "id": "01KSH02X5NZBSCAQS9CMAXV89J",
+                            "name": "姓名",
+                            "code": "name",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_NAME"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KSH02X5NMNXJF9D2C25V0W1A",
+                            "name": "性别",
+                            "code": "gender",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KSH01DQTVN5HXMTYAERJGXW0",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KSH02X5N3P943H2G74A7GTYS",
+                            "name": "身高",
+                            "code": "height",
+                            "type": "ATTRIBUTE_TYPE_DECIMAL",
+                            "precision": 8,
+                            "scale": 3,
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DECIMAL",
+                            "nullable": true,
+                            "fakeMin": "0.5",
+                            "fakeMax": "2.5"
+                        },
+                        {
+                            "id": "01KSH02X5N32AGZWSRMNWR6JBE",
+                            "name": "体重",
+                            "code": "weight",
+                            "type": "ATTRIBUTE_TYPE_DECIMAL",
+                            "precision": 8,
+                            "scale": 3,
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DECIMAL",
+                            "nullable": true,
+                            "fakeMin": "20",
+                            "fakeMax": "200"
+                        },
+                        {
+                            "id": "01KSH02X5NBGPTZRQTWTXE6K8K",
+                            "name": "出生日期",
+                            "code": "birthday",
+                            "type": "ATTRIBUTE_TYPE_DATE",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATE",
+                            "nullable": true
+                        },
+                        {
+                            "id": "01KSH02X5NN6J8MB5APEKEN2P0",
+                            "name": "头像",
+                            "code": "avatar",
+                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_AVATAR"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "nullable": true
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KSH0826K33TKN2BPDNC46T6K",
+                            "code": "product",
+                            "type": "ITEM_RELATION_TYPE_MORPH_MANY",
+                            "targetItemId": "01KSGZ567X9XHA4M7CK2EFMP24",
+                            "attrId": "01KSH06PKABDRMXW4GP2WSVBJJ",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KSH0826K0YMRVXSRHH1HFG86"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                }
+            ],
+            "namespaceId": "01KRGDMQYENQF60DZM3N5NPJY5"
+        }
+    ],
+    "pivotItems": [
+        {
+            "id": "01KRZ1SFSEF14611KB5CJ8FKV9",
+            "name": "角色多态关联",
+            "code": "pivot_role",
+            "table": "pivot_roles",
+            "attrs": [
+                {
+                    "id": "01KRZ1SFSDN923SW8Y87V1XXVE",
+                    "name": "角色ID",
+                    "code": "role_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                },
+                {
+                    "id": "01KRZ1SFSDR6P74W75HSK8GGSW",
+                    "name": "多态ID",
+                    "code": "model_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_ID"
+                },
+                {
+                    "id": "01KRZ1SFSD7NWBEM110FQ6NKA5",
+                    "name": "多态类型",
+                    "code": "model_type",
+                    "type": "ATTRIBUTE_TYPE_STRING",
+                    "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                    "fieldLength": 255,
+                    "nullable": true,
+                    "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_TYPE"
+                }
+            ]
+        },
+        {
+            "id": "01KS1QH76HBD19SG06XFRWD7BG",
+            "name": "角色权限",
+            "code": "role_permission",
+            "table": "role_permissions",
+            "attrs": [
+                {
+                    "id": "01KS1QH76HA9VD43K8DHMMCE50",
+                    "name": "角色ID",
+                    "code": "role_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                },
+                {
+                    "id": "01KS1QH76H2NE70K08KAN65ZFK",
+                    "name": "权限ID",
+                    "code": "permission_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                }
+            ]
+        },
+        {
+            "id": "01KS1SKDC7NSMABP6NH3H3BAM1",
+            "name": "权限多态关联",
+            "code": "pivot_permission",
+            "table": "pivot_permissions",
+            "attrs": [
+                {
+                    "id": "01KS1SKDC772N035TRNJAHR8X9",
+                    "name": "权限ID",
+                    "code": "permission_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                },
+                {
+                    "id": "01KS1SKDC7P1W1J6R9CA82C2B0",
+                    "name": "多态ID",
+                    "code": "model_id",
+                    "type": "ATTRIBUTE_TYPE_INT",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_ID"
+                },
+                {
+                    "id": "01KS1SKDC7ZNCFAF412GQTZW03",
+                    "name": "多态类型",
+                    "code": "model_type",
+                    "type": "ATTRIBUTE_TYPE_STRING",
+                    "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                    "fieldLength": 255,
+                    "nullable": true,
+                    "defaultValueType": "ATTRIBUTE_DEFAULT_VALUE_TYPE_NULL",
+                    "behavior": "ATTRIBUTE_BEHAVIOR_MORPH_TYPE"
+                }
+            ]
+        }
+    ],
+    "dictionaries": [
+        {
+            "id": "01KRZ0126W9B2F7GBVPKKK1X74",
+            "name": "用户状态",
+            "code": "user_status",
+            "moduleId": "01KRYZSXADXH4VZS48VKKYV90N",
+            "options": [
+                {
+                    "id": "01KRZ0126WB9H3GTNDR1PQT340",
+                    "name": "正常",
+                    "code": "active"
+                },
+                {
+                    "id": "01KRZ0126W4ZD2B9TE034YCFXS",
+                    "name": "禁用",
+                    "code": "disabled"
+                }
+            ]
+        },
+        {
+            "id": "01KSGZ501RBVFSMMPVK5JHXE5F",
+            "name": "产品状态",
+            "code": "product_status",
+            "moduleId": "01KSGY4G1CT0VGK41185QC1YD4",
+            "options": [
+                {
+                    "id": "01KSGZ501RG6WDHJBVP26RD7Z3",
+                    "name": "上架",
+                    "code": "on_sale"
+                },
+                {
+                    "id": "01KSGZ501RMZQ1GXE396TVA29C",
+                    "name": "下架",
+                    "code": "off_sale"
+                }
+            ]
+        },
+        {
+            "id": "01KSGZBAG8JC3ZQJF950FSMA1Z",
+            "name": "产品标签",
+            "code": "product_label",
+            "moduleId": "01KSGY4G1CT0VGK41185QC1YD4",
+            "options": [
+                {
+                    "id": "01KSGZBMX16PZEQTB1FK32T58Z",
+                    "name": "热卖",
+                    "code": "best_seller"
+                },
+                {
+                    "id": "01KSGZCC4Y19CR2PN24PB42ZK7",
+                    "name": "新品",
+                    "code": "new"
+                },
+                {
+                    "id": "01KSGZCT5Z7EAAXXTWPEZKMPEK",
+                    "name": "推荐",
+                    "code": "recommend"
+                },
+                {
+                    "id": "01KSGZDD8FFTAJATXDH7TJ19Q4",
+                    "name": "促销",
+                    "code": "promotion"
+                }
+            ]
+        },
+        {
+            "id": "01KSH01DQTVN5HXMTYAERJGXW0",
+            "name": "性别",
+            "code": "gender",
+            "options": [
+                {
+                    "id": "01KSH01DQT96GMME6TXNC3M3H3",
+                    "name": "男",
+                    "code": "male"
+                },
+                {
+                    "id": "01KSH01DQTEVNEMDD9WZEM88JB",
+                    "name": "女",
+                    "code": "female"
+                }
+            ]
+        }
+    ],
+    "schemaVersion": 1,
+    "name": "Laravel",
+    "namespaces": [
+        {
+            "id": "01KRGDMQY2PVDND7Y7PNR4508X",
+            "name": "App",
+            "modelNamespace": "App\\Models",
+            "migrationOutputPath": "database/migrations",
+            "factoryNamespace": "Database\\Factories",
+            "seederNamespace": "Database\\Seeders",
+            "enumNamespace": "App\\Enums",
+            "isSystem": true
+        },
+        {
+            "id": "01KRGDMQYENQF60DZM3N5NPJY5",
+            "name": "Module",
+            "modelNamespace": "Modules\\{Module}\\Models",
+            "migrationOutputPath": "Modules/{Module}/database/migrations",
+            "factoryNamespace": "Modules\\{Module}\\Database\\Factories",
+            "seederNamespace": "Modules\\{Module}\\Database\\Seeders",
+            "enumNamespace": "Modules\\{Module}\\Enums",
+            "isSystem": true
+        }
+    ],
+    "pivotLayoutConfig": {
+        "modelNamespace": "App\\Models",
+        "migrationOutputPath": "database/migrations",
+        "factoryNamespace": "Database\\Factories"
+    },
+    "globalEnumLayoutConfig": {
+        "namespace": "App\\Enums"
+    }
+}
