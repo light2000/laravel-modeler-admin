@@ -78,10 +78,11 @@ export function createCrud<Resource extends keyof paths>(resource: Resource, met
         },
 
         /**
-         * 删除
+         * 删除（单条 id 或批量 ids，批量时以逗号拼接）
          */
-        remove(id: string) {
-            return http.delete<void, void>(`${resource}/${id}`)
+        remove(id: string | (string | number)[]) {
+            const ids = Array.isArray(id) ? id.map(String).join(',') : String(id)
+            return http.delete<void, void>(`${resource}/${ids}`)
         }
     }
 }

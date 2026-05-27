@@ -11,7 +11,14 @@ v-model:query="list.query" :columns="userTableSchema" selectable :loading="list.
         <el-button v-can="'user.user.store'" type="primary" :icon="CirclePlus" @click="form.openCreate()">
           新增用户
         </el-button>
-        <el-button v-can="'user.user.destroy'" type="danger" :icon="Delete" plain :disabled="!scope.isSelected">
+        <el-button
+          v-can="'user.user.destroy'"
+          type="danger"
+          :icon="Delete"
+          plain
+          :disabled="!scope.isSelected"
+          @click="del.execute(scope.selectedIds)"
+        >
           批量删除
         </el-button>
       </template>

@@ -14,5 +14,5 @@ export interface CrudApi<Row, Detail, FormRow, Query extends BaseQuery, CreateFo
     detail(id: string): Promise<Detail>
     edit(id: string): Promise<FormRow>
     update(id: string, data: UpdateForm): Promise<FormRow>
-    remove(id: string): Promise<void>
+    remove(id: string | (string | number)[]): Promise<void>
 }
