@@ -20,7 +20,14 @@ class AdministratorController extends Controller
     }
     public function store(StoreRequest $request)
     {
-        return new FormResource(Administrator::create($request->validated()));
+        $data = $request->validated();
+        $roleIds = $data['role_ids'] ?? [];
+        unset($data['role_ids']);
+
+        $administrator = Administrator::create($data);
+        $administrator->role()->sync($roleIds);
+
+        return new FormResource($administrator);
     }
     public function show(Administrator $administrator)
     {
@@ -39,9 +46,17 @@ class AdministratorController extends Controller
     {
         $this->authorize('update', $administrator);
 
-        $administrator->update($request->validated());
+        $data = $request->validated();
+        if (array_key_exists('role_ids', $data)) {
+            $administrator->role()->sync($data['role_ids'] ?? []);
+            unset($data['role_ids']);
+        }
 
-        return new FormResource($administrator);
+        if ($data !== []) {
+            $administrator->update($data);
+        }
+
+        return new FormResource($administrator->fresh());
     }
     public function destroy(string $ids)
     {

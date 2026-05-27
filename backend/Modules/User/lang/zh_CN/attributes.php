@@ -17,6 +17,7 @@ return [
         'nickname' => '昵称',
         'avatar' => '头像',
         'status' => '状态',
+        'role_ids' => '角色',
     ],
     'role' => [
         'name' => '角色名称',

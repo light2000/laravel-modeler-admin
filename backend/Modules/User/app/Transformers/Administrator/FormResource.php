@@ -29,6 +29,11 @@ class FormResource extends BaseResource
              * @var string
              */
             'avatar' => $this->avatar,
+            /**
+             * 角色 ID 列表
+             * @var int[]
+             */
+            'role_ids' => $this->role()->pluck('roles.id')->values()->all(),
         ];
     }
 }

@@ -5,6 +5,7 @@ use Modules\User\Http\Controllers\Administrator\AdministratorController;
 use Modules\User\Http\Controllers\Administrator\MeController;
 use Modules\User\Http\Controllers\Administrator\RoleController;
 use Modules\User\Http\Controllers\Administrator\UserController;
+use Modules\User\Http\Controllers\Options\RoleOptionsController;
 
 Route::middleware(['auth:administrator'])->prefix('administrator/user')->group(function () {
     Route::post('users', [UserController::class, 'store'])->name('user.user.store');
@@ -28,6 +29,10 @@ Route::middleware(['auth:administrator'])->prefix('administrator/user')->group(f
     Route::put('roles/{role}/permissions', [RoleController::class, 'updatePermissions'])->name('user.role.update.permissions');
     Route::get('roles/{role}/permissions', [RoleController::class, 'editPermissions'])->name('user.role.edit.permissions');
 });
+Route::middleware(['auth:administrator'])->group(function () {
+    Route::get('options/user/role', [RoleOptionsController::class, 'index'])->name('user.role.options');
+});
+
 Route::middleware(['auth:administrator'])->prefix('administrator/me')->group(function () {
     Route::get('/', [MeController::class, 'show'])->name('user.administrator.show.profile');
     Route::put('/profile', [MeController::class, 'updateProfile'])->name('user.administrator.update.profile');

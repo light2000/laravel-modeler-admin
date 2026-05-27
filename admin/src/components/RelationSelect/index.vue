@@ -45,6 +45,7 @@
             :placeholder="placeholder"
             :disabled="disabled"
             :loading="loading"
+            :multiple="multiple"
             filterable
             remote
             :remote-method="debouncedSearchOptions"
@@ -84,16 +85,17 @@ const props = withDefaults(defineProps<RelationSelectProps>(), {
     polymorphic: false,
     clearable: true,
     placeholder: '请选择',
-    disabled: false
+    disabled: false,
+    multiple: false
 })
 
 const emit = defineEmits<{
-    'update:modelValue': [value: number | string | undefined]
+    'update:modelValue': [value: number | string | number[] | string[] | undefined]
     'update:morphType': [value: string | undefined]
     'update:morphId': [value: number | string | undefined]
 }>()
 
-const modelValue = defineModel<number | string | undefined>('modelValue')
+const modelValue = defineModel<number | string | number[] | string[] | undefined>('modelValue')
 const morphTypeModel = defineModel<string | undefined>('morphType')
 const morphIdModel = defineModel<number | string | undefined>('morphId')
 
@@ -247,8 +249,16 @@ async function loadMorphIdOptions() {
     }
 }
 
-// 搜索普通FK选项（支持 q 和 id 参数）
-async function searchOptions(query: string, id?: number | string) {
+function getSelectedIds(): Array<number | string> {
+    const value = modelValue.value
+    if (value === undefined || value === null) {
+        return []
+    }
+    return Array.isArray(value) ? value : [value]
+}
+
+// 搜索普通FK选项（支持 q、id 和 ids 参数）
+async function searchOptions(query: string, id?: number | string, ids?: string) {
     const module = props.relationModule
     const targetModel = props.relationModel
 
@@ -269,6 +279,9 @@ async function searchOptions(query: string, id?: number | string) {
         // 如果指定了 id，添加 id 参数
         if (id !== undefined && id !== null) {
             params.id = String(id)
+        }
+        if (ids) {
+            params.ids = ids
         }
 
         const response = await http.get<{ rows: Option[]; total: number }>(`/options/${module}/${targetModel}`, {
@@ -293,26 +306,23 @@ async function loadOptions() {
         return
     }
 
+    const selectedIds = getSelectedIds()
+
     // 如果存在默认值，需要合并第一页和默认值的数据
-    if (modelValue.value !== undefined && modelValue.value !== null) {
+    if (selectedIds.length > 0) {
         try {
-            // 先请求第一页数据
             await searchOptions('')
             const firstPageOptions = [...options.value]
 
-            // 再请求默认值对应的数据
-            await searchOptions('', modelValue.value)
-            const defaultOption = options.value[0]
-
-            // 合并并排重（按 value 去重）
-            const mergedOptions = new Map<number | string, Option>()
-
-            // 先添加默认值的数据（确保它在列表中）
-            if (defaultOption) {
-                mergedOptions.set(defaultOption.value, defaultOption)
+            if (props.multiple) {
+                await searchOptions('', undefined, selectedIds.map(String).join(','))
+            } else {
+                await searchOptions('', selectedIds[0])
             }
+            const selectedOptions = [...options.value]
 
-            // 再添加第一页的数据
+            const mergedOptions = new Map<number | string, Option>()
+            selectedOptions.forEach(opt => mergedOptions.set(opt.value, opt))
             firstPageOptions.forEach(opt => {
                 if (!mergedOptions.has(opt.value)) {
                     mergedOptions.set(opt.value, opt)
@@ -322,11 +332,9 @@ async function loadOptions() {
             options.value = Array.from(mergedOptions.values())
         } catch (error) {
             console.error('Failed to load options with default value:', error)
-            // 如果合并失败，至少尝试加载第一页
             await searchOptions('')
         }
     } else {
-        // 没有默认值，只加载第一页
         await searchOptions('')
     }
 }
@@ -336,7 +344,7 @@ const debouncedSearchOptions = debounce(searchOptions, 300)
 const debouncedSearchMorphIdOptions = debounce(searchMorphIdOptions, 300)
 
 // 处理普通FK变化
-function handleChange(value: number | string | undefined) {
+function handleChange(value: number | string | number[] | string[] | undefined) {
     modelValue.value = value
     emit('update:modelValue', value)
 }
@@ -355,7 +363,7 @@ onMounted(() => {
     // 如果已有值，自动加载选项
     if (props.polymorphic && morphTypeValue.value) {
         loadMorphIdOptions()
-    } else if (!props.polymorphic && modelValue.value) {
+    } else if (!props.polymorphic && getSelectedIds().length > 0) {
         const module = props.relationModule
         const targetModel = props.relationModel
         if (module && targetModel && props.field) {

@@ -123,6 +123,7 @@
             :field="`${item.model}.${item.prop}`"
             :relation-module="item.relationModule"
             :relation-model="item.relationModel"
+            :multiple="item.componentProps?.multiple ?? false"
             :clearable="item.componentProps?.clearable ?? true"
             :placeholder="item.componentProps?.placeholder ?? '请选择'"
             :disabled="isDisabled()"

@@ -15,6 +15,9 @@ class UpdateRequest extends BaseFormRequest
             'nickname' => ['sometimes', 'nullable', 'string', 'min:1', 'max:30'],
             // 头像
             'avatar' => ['sometimes', 'nullable', 'string', 'max:255'],
+            // 角色
+            'role_ids' => ['sometimes', 'nullable', 'array'],
+            'role_ids.*' => ['integer', 'exists:roles,id'],
         ];
     }
 
@@ -24,6 +27,7 @@ class UpdateRequest extends BaseFormRequest
             'account' => __('user::attributes.administrator.account'),
             'nickname' => __('user::attributes.administrator.nickname'),
             'avatar' => __('user::attributes.administrator.avatar'),
+            'role_ids' => __('user::attributes.administrator.role_ids'),
         ];
     }
 

@@ -15,6 +15,8 @@ export interface RelationSelectProps {
     placeholder?: string
     /** 是否禁用 */
     disabled?: boolean
+    /** 是否多选 */
+    multiple?: boolean
 }
 
 export interface PolymorphicTypes {

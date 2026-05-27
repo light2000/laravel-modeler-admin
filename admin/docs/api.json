@@ -260,37 +260,6 @@
                         "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
-            },
-            "delete": {
-                "operationId": "shop.actor.destroy",
-                "tags": [
-                    "Actor"
-                ],
-                "parameters": [
-                    {
-                        "name": "actor",
-                        "in": "path",
-                        "required": true,
-                        "description": "The actor ID",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AuthorizationException"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/ModelNotFoundException"
-                    },
-                    "401": {
-                        "$ref": "#/components/responses/AuthenticationException"
-                    }
-                }
             }
         },
         "/administrator/shop/actors/{actor}/edit": {
@@ -334,6 +303,35 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/actors/{ids}": {
+            "delete": {
+                "operationId": "shop.actor.destroy",
+                "tags": [
+                    "Actor"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -639,37 +637,6 @@
                         "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
-            },
-            "delete": {
-                "operationId": "user.administrator.destroy",
-                "tags": [
-                    "Administrator"
-                ],
-                "parameters": [
-                    {
-                        "name": "administrator",
-                        "in": "path",
-                        "required": true,
-                        "description": "The administrator ID",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AuthorizationException"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/ModelNotFoundException"
-                    },
-                    "401": {
-                        "$ref": "#/components/responses/AuthenticationException"
-                    }
-                }
             }
         },
         "/administrator/user/administrators/{administrator}/edit": {
@@ -713,6 +680,35 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/administrators/{ids}": {
+            "delete": {
+                "operationId": "user.administrator.destroy",
+                "tags": [
+                    "Administrator"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -963,37 +959,6 @@
                         "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
-            },
-            "delete": {
-                "operationId": "shop.athlete.destroy",
-                "tags": [
-                    "Athlete"
-                ],
-                "parameters": [
-                    {
-                        "name": "athlete",
-                        "in": "path",
-                        "required": true,
-                        "description": "The athlete ID",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AuthorizationException"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/ModelNotFoundException"
-                    },
-                    "401": {
-                        "$ref": "#/components/responses/AuthenticationException"
-                    }
-                }
             }
         },
         "/administrator/shop/athletes/{athlete}/edit": {
@@ -1037,6 +1002,35 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/athletes/{ids}": {
+            "delete": {
+                "operationId": "shop.athlete.destroy",
+                "tags": [
+                    "Athlete"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -1286,37 +1280,6 @@
                         "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
-            },
-            "delete": {
-                "operationId": "shop.category.destroy",
-                "tags": [
-                    "Category"
-                ],
-                "parameters": [
-                    {
-                        "name": "category",
-                        "in": "path",
-                        "required": true,
-                        "description": "The category ID",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AuthorizationException"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/ModelNotFoundException"
-                    },
-                    "401": {
-                        "$ref": "#/components/responses/AuthenticationException"
-                    }
-                }
             }
         },
         "/administrator/shop/categories/{category}/edit": {
@@ -1360,6 +1323,35 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/categories/{ids}": {
+            "delete": {
+                "operationId": "shop.category.destroy",
+                "tags": [
+                    "Category"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -1962,37 +1954,6 @@
                         "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
-            },
-            "delete": {
-                "operationId": "shop.product.destroy",
-                "tags": [
-                    "Product"
-                ],
-                "parameters": [
-                    {
-                        "name": "product",
-                        "in": "path",
-                        "required": true,
-                        "description": "The product ID",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AuthorizationException"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/ModelNotFoundException"
-                    },
-                    "401": {
-                        "$ref": "#/components/responses/AuthenticationException"
-                    }
-                }
             }
         },
         "/administrator/shop/products/{product}/edit": {
@@ -2036,6 +1997,35 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/shop/products/{ids}": {
+            "delete": {
+                "operationId": "shop.product.destroy",
+                "tags": [
+                    "Product"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -2279,37 +2269,6 @@
                         "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
-            },
-            "delete": {
-                "operationId": "user.role.destroy",
-                "tags": [
-                    "Role"
-                ],
-                "parameters": [
-                    {
-                        "name": "role",
-                        "in": "path",
-                        "required": true,
-                        "description": "The role ID",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AuthorizationException"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/ModelNotFoundException"
-                    },
-                    "401": {
-                        "$ref": "#/components/responses/AuthenticationException"
-                    }
-                }
             }
         },
         "/administrator/user/roles/{role}/edit": {
@@ -2353,6 +2312,35 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/roles/{ids}": {
+            "delete": {
+                "operationId": "user.role.destroy",
+                "tags": [
+                    "Role"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -2460,6 +2448,122 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/options/user/role": {
+            "get": {
+                "operationId": "user.role.options",
+                "tags": [
+                    "RoleOptions"
+                ],
+                "parameters": [
+                    {
+                        "name": "for",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "ids",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1
+                        }
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "schema": {
+                            "type": [
+                                "integer",
+                                "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 100
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Paginated set of `OptionResource`",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/OptionCollection"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "An error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "description": "Error overview."
+                                        }
+                                    },
+                                    "required": [
+                                        "message"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#/components/responses/ValidationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -2782,37 +2886,6 @@
                         "$ref": "#/components/responses/AuthenticationException"
                     }
                 }
-            },
-            "delete": {
-                "operationId": "user.user.destroy",
-                "tags": [
-                    "User"
-                ],
-                "parameters": [
-                    {
-                        "name": "user",
-                        "in": "path",
-                        "required": true,
-                        "description": "The user ID",
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "No content"
-                    },
-                    "403": {
-                        "$ref": "#/components/responses/AuthorizationException"
-                    },
-                    "404": {
-                        "$ref": "#/components/responses/ModelNotFoundException"
-                    },
-                    "401": {
-                        "$ref": "#/components/responses/AuthenticationException"
-                    }
-                }
             }
         },
         "/administrator/user/users/{user}/edit": {
@@ -2856,6 +2929,35 @@
                     },
                     "404": {
                         "$ref": "#/components/responses/ModelNotFoundException"
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/AuthenticationException"
+                    }
+                }
+            }
+        },
+        "/administrator/user/users/{ids}": {
+            "delete": {
+                "operationId": "user.user.destroy",
+                "tags": [
+                    "User"
+                ],
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No content"
+                    },
+                    "403": {
+                        "$ref": "#/components/responses/AuthorizationException"
                     },
                     "401": {
                         "$ref": "#/components/responses/AuthenticationException"
@@ -3268,8 +3370,8 @@
                             "null"
                         ],
                         "enum": [
-                            "Modules\\Shop\\Models\\Actor",
-                            "Modules\\Shop\\Models\\Athlete"
+                            "actor",
+                            "athlete"
                         ]
                     },
                     "photos": {
@@ -3400,8 +3502,8 @@
                             "null"
                         ],
                         "enum": [
-                            "Modules\\Shop\\Models\\Actor",
-                            "Modules\\Shop\\Models\\Athlete"
+                            "actor",
+                            "athlete"
                         ]
                     },
                     "photos": {
@@ -4136,6 +4238,16 @@
                         "type": "string",
                         "description": "\u5934\u50cf",
                         "maxLength": 255
+                    },
+                    "role_ids": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "description": "\u89d2\u8272",
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 },
                 "required": [
@@ -4175,6 +4287,16 @@
                         ],
                         "description": "\u5934\u50cf",
                         "maxLength": 255
+                    },
+                    "role_ids": {
+                        "type": [
+                            "array",
+                            "null"
+                        ],
+                        "description": "\u89d2\u8272",
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 },
                 "title": "Modules.User.Http.Requests.Administrator.UpdateRequest"
@@ -4316,13 +4438,21 @@
                     "avatar": {
                         "type": "string",
                         "description": "\u5934\u50cf"
+                    },
+                    "role_ids": {
+                        "type": "array",
+                        "description": "\u89d2\u8272 ID \u5217\u8868",
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 },
                 "required": [
                     "id",
                     "account",
                     "nickname",
-                    "avatar"
+                    "avatar",
+                    "role_ids"
                 ],
                 "title": "Modules.User.Transformers.Administrator.FormResource"
             },
@@ -4389,13 +4519,21 @@
                     "avatar": {
                         "type": "string",
                         "description": "\u5934\u50cf"
+                    },
+                    "role_ids": {
+                        "type": "array",
+                        "description": "\u89d2\u8272 ID \u5217\u8868",
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 },
                 "required": [
                     "id",
                     "account",
                     "nickname",
-                    "avatar"
+                    "avatar",
+                    "role_ids"
                 ],
                 "title": "Modules.User.Transformers.Administrator.ShowResource"
             },

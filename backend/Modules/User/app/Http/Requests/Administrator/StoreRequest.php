@@ -16,6 +16,9 @@ class StoreRequest extends BaseFormRequest
             'nickname' => ['required', 'string', 'min:1', 'max:30'],
             // 头像
             'avatar' => ['required', 'string', 'max:255'],
+            // 角色
+            'role_ids' => ['nullable', 'array'],
+            'role_ids.*' => ['integer', 'exists:roles,id'],
         ];
     }
 
@@ -26,6 +29,7 @@ class StoreRequest extends BaseFormRequest
             'password' => __('user::attributes.administrator.password'),
             'nickname' => __('user::attributes.administrator.nickname'),
             'avatar' => __('user::attributes.administrator.avatar'),
+            'role_ids' => __('user::attributes.administrator.role_ids'),
         ];
     }
 
