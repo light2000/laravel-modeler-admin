@@ -50,10 +50,14 @@ class AthleteController extends Controller
         return new FormResource($athlete);
     }
 
-    public function destroy(Athlete $athlete)
+    public function destroy(string $ids)
     {
-        $this->authorize('destroy', $athlete);
-        $athlete->delete();
+        $idList = array_values(array_filter(explode(',', $ids)));
+
+        foreach (Athlete::whereIn('id', $idList)->get() as $athlete) {
+            $this->authorize('destroy', $athlete);
+            $athlete->delete();
+        }
 
         return response()->noContent();
     }

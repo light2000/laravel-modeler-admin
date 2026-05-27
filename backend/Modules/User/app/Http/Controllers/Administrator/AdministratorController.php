@@ -43,10 +43,14 @@ class AdministratorController extends Controller
 
         return new FormResource($administrator);
     }
-    public function destroy(Administrator $administrator)
+    public function destroy(string $ids)
     {
-        $this->authorize('destroy', $administrator);
-        $administrator->delete();
+        $idList = array_values(array_filter(explode(',', $ids)));
+
+        foreach (Administrator::whereIn('id', $idList)->get() as $administrator) {
+            $this->authorize('destroy', $administrator);
+            $administrator->delete();
+        }
 
         return response()->noContent();
     }

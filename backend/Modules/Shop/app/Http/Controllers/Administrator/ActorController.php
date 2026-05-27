@@ -50,10 +50,14 @@ class ActorController extends Controller
         return new FormResource($actor);
     }
 
-    public function destroy(Actor $actor)
+    public function destroy(string $ids)
     {
-        $this->authorize('destroy', $actor);
-        $actor->delete();
+        $idList = array_values(array_filter(explode(',', $ids)));
+
+        foreach (Actor::whereIn('id', $idList)->get() as $actor) {
+            $this->authorize('destroy', $actor);
+            $actor->delete();
+        }
 
         return response()->noContent();
     }

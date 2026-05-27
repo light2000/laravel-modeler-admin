@@ -17,7 +17,14 @@
                 <el-button v-can="'user.role.store'" type="primary" :icon="CirclePlus" @click="form.openCreate()">
                     新增角色
                 </el-button>
-                <el-button v-can="'user.role.destroy'" type="danger" :icon="Delete" plain :disabled="!scope.isSelected">
+                <el-button
+                    v-can="'user.role.destroy'"
+                    type="danger"
+                    :icon="Delete"
+                    plain
+                    :disabled="!scope.isSelected"
+                    @click="del.execute(scope.selectedIds)"
+                >
                     批量删除
                 </el-button>
             </template>

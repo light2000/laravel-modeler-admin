@@ -43,10 +43,14 @@ class UserController extends Controller
 
         return new FormResource($user);
     }
-    public function destroy(User $user)
+    public function destroy(string $ids)
     {
-        $this->authorize('destroy', $user);
-        $user->delete();
+        $idList = array_values(array_filter(explode(',', $ids)));
+
+        foreach (User::whereIn('id', $idList)->get() as $user) {
+            $this->authorize('destroy', $user);
+            $user->delete();
+        }
 
         return response()->noContent();
     }

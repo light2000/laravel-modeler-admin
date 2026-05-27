@@ -69,7 +69,7 @@ export function useForm<CreateForm, UpdateForm, FormRow>(options: {
             options.onSuccess?.()
         } catch (error) {
             if (error instanceof ValidationError) {
-                console.log(error.body)
+                //console.log(error.body)
                 errors.value = error.body
             } else {
                 ElMessage.error((error as Error).message)

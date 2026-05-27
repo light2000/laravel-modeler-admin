@@ -14,7 +14,14 @@
         <el-button v-can="'shop.athlete.store'" type="primary" :icon="CirclePlus" @click="form.openCreate()">
           新增运动员
         </el-button>
-        <el-button v-can="'shop.athlete.destroy'" type="danger" :icon="Delete" plain :disabled="!scope.isSelected">
+        <el-button
+          v-can="'shop.athlete.destroy'"
+          type="danger"
+          :icon="Delete"
+          plain
+          :disabled="!scope.isSelected"
+          @click="del.execute(scope.selectedIds)"
+        >
           批量删除
         </el-button>
       </template>

@@ -29,7 +29,7 @@ const sunnyOrDarkIcon = computed(() =>
 watch(
     () => appStore.dark,
     newVal => {
-        console.log('appStore.dark', newVal)
+        //console.log('appStore.dark', newVal)
         switchDark()
     }
 )
@@ -37,7 +37,7 @@ watch(
 watch(
     () => appStore.primary,
     newVal => {
-        console.log('appStore.primary', newVal)
+        //console.log('appStore.primary', newVal)
         changePrimary(newVal)
     }
 )

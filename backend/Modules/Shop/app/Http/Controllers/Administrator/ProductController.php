@@ -50,10 +50,14 @@ class ProductController extends Controller
         return new FormResource($product);
     }
 
-    public function destroy(Product $product)
+    public function destroy(string $ids)
     {
-        $this->authorize('destroy', $product);
-        $product->delete();
+        $idList = array_values(array_filter(explode(',', $ids)));
+
+        foreach (Product::whereIn('id', $idList)->get() as $product) {
+            $this->authorize('destroy', $product);
+            $product->delete();
+        }
 
         return response()->noContent();
     }

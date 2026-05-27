@@ -29,7 +29,7 @@ export function useList<Query extends BaseQuery, Row>(
     watch(
         query,
         () => {
-            console.log('query changed', query.value)
+            //console.log('query changed', query.value)
             reload()
         },
         { deep: true }

@@ -13,28 +13,28 @@ Route::middleware(['auth:administrator'])->prefix('administrator/shop')->group(f
     Route::get('categories/{category}/edit', [CategoryController::class, 'edit'])->name('shop.category.edit');
     Route::get('categories', [CategoryController::class, 'index'])->name('shop.category.index');
     Route::get('categories/{category}', [CategoryController::class, 'show'])->name('shop.category.show');
-    Route::delete('categories/{category}', [CategoryController::class, 'destroy'])->name('shop.category.destroy');
+    Route::delete('categories/{ids}', [CategoryController::class, 'destroy'])->where('ids', '[0-9,]+')->name('shop.category.destroy');
 
     Route::post('products', [ProductController::class, 'store'])->name('shop.product.store');
     Route::put('products/{product}', [ProductController::class, 'update'])->name('shop.product.update');
     Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('shop.product.edit');
     Route::get('products', [ProductController::class, 'index'])->name('shop.product.index');
     Route::get('products/{product}', [ProductController::class, 'show'])->name('shop.product.show');
-    Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('shop.product.destroy');
+    Route::delete('products/{ids}', [ProductController::class, 'destroy'])->where('ids', '[0-9,]+')->name('shop.product.destroy');
 
     Route::post('actors', [ActorController::class, 'store'])->name('shop.actor.store');
     Route::put('actors/{actor}', [ActorController::class, 'update'])->name('shop.actor.update');
     Route::get('actors/{actor}/edit', [ActorController::class, 'edit'])->name('shop.actor.edit');
     Route::get('actors', [ActorController::class, 'index'])->name('shop.actor.index');
     Route::get('actors/{actor}', [ActorController::class, 'show'])->name('shop.actor.show');
-    Route::delete('actors/{actor}', [ActorController::class, 'destroy'])->name('shop.actor.destroy');
+    Route::delete('actors/{ids}', [ActorController::class, 'destroy'])->where('ids', '[0-9,]+')->name('shop.actor.destroy');
 
     Route::post('athletes', [AthleteController::class, 'store'])->name('shop.athlete.store');
     Route::put('athletes/{athlete}', [AthleteController::class, 'update'])->name('shop.athlete.update');
     Route::get('athletes/{athlete}/edit', [AthleteController::class, 'edit'])->name('shop.athlete.edit');
     Route::get('athletes', [AthleteController::class, 'index'])->name('shop.athlete.index');
     Route::get('athletes/{athlete}', [AthleteController::class, 'show'])->name('shop.athlete.show');
-    Route::delete('athletes/{athlete}', [AthleteController::class, 'destroy'])->name('shop.athlete.destroy');
+    Route::delete('athletes/{ids}', [AthleteController::class, 'destroy'])->where('ids', '[0-9,]+')->name('shop.athlete.destroy');
 });
 
 Route::middleware(['auth:administrator'])->group(function () {

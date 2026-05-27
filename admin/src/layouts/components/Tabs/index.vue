@@ -45,7 +45,7 @@ watch(
     path => {
         tabsValue.value = path
         tabsStore.addView(route)
-        console.log(tabs.value)
+        //console.log(tabs.value)
     },
     { immediate: true }
 )

@@ -50,10 +50,14 @@ class CategoryController extends Controller
         return new FormResource($category);
     }
 
-    public function destroy(Category $category)
+    public function destroy(string $ids)
     {
-        $this->authorize('destroy', $category);
-        $category->delete();
+        $idList = array_values(array_filter(explode(',', $ids)));
+
+        foreach (Category::whereIn('id', $idList)->get() as $category) {
+            $this->authorize('destroy', $category);
+            $category->delete();
+        }
 
         return response()->noContent();
     }

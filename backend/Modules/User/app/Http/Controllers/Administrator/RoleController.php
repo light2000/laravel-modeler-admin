@@ -45,12 +45,16 @@ class RoleController extends Controller
 
         return new FormResource($role);
     }
-    public function destroy(Role $role)
+    public function destroy(string $ids)
     {
-        $this->authorize('destroy', $role);
-        $role->name = $role->name . '#deleted#' . $role->id;
-        $role->save();
-        $role->delete();
+        $idList = array_values(array_filter(explode(',', $ids)));
+
+        foreach (Role::whereIn('id', $idList)->get() as $role) {
+            $this->authorize('destroy', $role);
+            $role->name = $role->name . '#deleted#' . $role->id;
+            $role->save();
+            $role->delete();
+        }
 
         return response()->noContent();
     }
