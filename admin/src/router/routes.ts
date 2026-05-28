@@ -14,9 +14,21 @@ export const appRoutes: RouteRecordRaw[] = [
     {
         path: '/',
         component: () => import('@/layouts/index.vue'),
-        redirect: '/home',
+        redirect: '/dashboard',
         meta: { hidden: true, noTagsView: true },
         children: [
+            {
+                path: 'dashboard',
+                name: 'Dashboard',
+                component: () => import('@/views/dashboard/index.vue'),
+                meta: {
+                    title: '仪表盘',
+                    icon: 'ep:Odometer',
+                    noTagsView: false,
+                    hidden: false,
+                    affix: true
+                }
+            },
             {
                 path: 'home',
                 name: 'Home',
@@ -26,7 +38,7 @@ export const appRoutes: RouteRecordRaw[] = [
                     icon: 'ep:HomeFilled',
                     noTagsView: false,
                     hidden: true,
-                    affix: true
+                    affix: false
                 }
             }
         ]

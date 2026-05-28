@@ -92,7 +92,7 @@ const performLogin = async (formData = loginForm) => {
         permissionStore.generateMenus(appRoutes, response.permissions)
         tabsStore.delAllViews()
 
-        router.push({ name: 'Home' })
+        router.push({ name: 'Dashboard' })
         ElNotification({
             title: getTimeStateText(),
             message: `欢迎登录 ${import.meta.env.VITE_APP_NAME}`,

@@ -58,7 +58,7 @@ const appStore = useAppStore()
 const permissionStore = usePermissionStore()
 const homeRoute = computed(() => {
     const routes = router.getRoutes()
-    return routes.find(item => item.name === 'Home')
+    return routes.find(item => item.name === 'Dashboard')
 })
 
 const handleClickHome = () => {

@@ -34,10 +34,10 @@ const permissionStore = usePermissionStore()
 const breadcrumbList = computed(() => {
     const path = route.matched[route.matched.length - 1].path
     let breadcrumbData = permissionStore.breadcrumbMap[path] ?? []
-    if (route.matched[route.matched.length - 1].name !== 'Home') {
-        breadcrumbData = [{ path: '/', meta: { icon: 'ep:HomeFilled', title: '首页' } }, ...breadcrumbData]
+    if (route.matched[route.matched.length - 1].name !== 'Dashboard') {
+        breadcrumbData = [{ path: '/dashboard', meta: { icon: 'ep:Odometer', title: '仪表盘' } }, ...breadcrumbData]
     } else {
-        breadcrumbData = [{ path: '/', meta: { icon: 'ep:HomeFilled', title: '首页' } }]
+        breadcrumbData = [{ path: '/dashboard', meta: { icon: 'ep:Odometer', title: '仪表盘' } }]
     }
 
     return breadcrumbData

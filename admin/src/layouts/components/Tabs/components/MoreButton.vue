@@ -43,7 +43,7 @@ const closeOtherTab = () => {
 // Close All
 const closeAllTab = () => {
     tabsStore.delAllViews()
-    router.push({ name: 'Home' })
+    router.push({ name: 'Dashboard' })
 }
 </script>
 
