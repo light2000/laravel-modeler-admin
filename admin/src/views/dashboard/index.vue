@@ -270,7 +270,7 @@ const statCards = [
         hint: 'orders',
         icon: 'ep:ShoppingCart',
         tone: 'orders',
-        path: '/shop/orders'
+        path: ''
     },
     {
         key: 'categories' as const,
@@ -342,7 +342,10 @@ function statusLabel(enumKey: 'user_status' | 'product_status', value: string) {
 }
 
 function go(path: string) {
-    router.push(path)
+    if (path && "" !== path) {
+        router.push(path)
+    }
+  
 }
 
 async function loadDashboard() {
