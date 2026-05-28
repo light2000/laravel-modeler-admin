@@ -115,7 +115,7 @@
                     <el-table-column label="用户" min-width="160">
                         <template #default="{ row }">
                             <div class="user-cell">
-                                <el-avatar :size="36" :src="row.avatar || undefined">
+                                <el-avatar :size="36" :src="resolveImageUrl(row.avatar) || undefined">
                                     {{ (row.nickname || row.username || '?').slice(0, 1) }}
                                 </el-avatar>
                                 <div class="user-meta">
@@ -149,7 +149,7 @@
                     <el-table-column label="产品" min-width="180">
                         <template #default="{ row }">
                             <div class="product-cell">
-                                <img v-if="row.cover_image" :src="row.cover_image" class="product-thumb" alt="" />
+                                <img v-if="row.cover_image" :src="resolveImageUrl(row.cover_image)" class="product-thumb" alt="" />
                                 <div v-else class="product-thumb product-thumb--placeholder">
                                     <Icon name="ep:Picture" :size="18" />
                                 </div>
@@ -200,6 +200,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
+import { resolveImageUrl } from '@/utils/media'
 import { useRouter } from 'vue-router'
 import Icon from '@/components/Icon/index.vue'
 import { useAuthStore } from '@/store/modules/auth'
