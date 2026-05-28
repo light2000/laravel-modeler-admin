@@ -248,7 +248,7 @@ const statCards = [
     {
         key: 'administrators' as const,
         label: '管理员',
-        hint: 'administrators 表',
+        hint: 'administrators',
         icon: 'ep:UserFilled',
         tone: 'admins',
         path: '/user/administrators'
@@ -257,7 +257,7 @@ const statCards = [
     {
         key: 'products' as const,
         label: '产品',
-        hint: '商城核心 SKU',
+        hint: 'products',
         icon: 'ep:Goods',
         tone: 'shop',
         path: '/shop/products'
@@ -265,7 +265,7 @@ const statCards = [
     {
         key: 'categories' as const,
         label: '分类',
-        hint: 'categories 表',
+        hint: 'categories',
         icon: 'ep:Menu',
         tone: 'shop',
         path: '/shop/categories'
@@ -274,7 +274,7 @@ const statCards = [
     {
         key: 'athletes' as const,
         label: '运动员',
-        hint: 'athletes 表',
+        hint: 'athletes',
         icon: 'ep:Trophy',
         tone: 'shop',
         path: '/shop/athletes'
