@@ -22,8 +22,6 @@ class OrderFactory extends Factory
         return [
             'total_amount' => sprintf('%.2f', fake()->numberBetween(100, 100000000) / 100),
             'status' => fake()->randomElement(['pending', 'paid', 'shipped', 'completed', 'cancelled']),
-            'created_at' => fake()->dateTimeBetween('-2 years', 'now')->format('Y-m-d H:i:s'),
-            'updated_at' => fake()->dateTimeBetween('-2 years', 'now')->format('Y-m-d H:i:s'),
         ];
     }
 }

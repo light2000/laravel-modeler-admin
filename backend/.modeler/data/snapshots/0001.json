@@ -1046,20 +1046,6 @@
                             "type": "ATTRIBUTE_TYPE_ENUM",
                             "dictId": "01KSPDX9XJ8Y34WAV8VNRSGVJ2",
                             "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
-                        },
-                        {
-                            "id": "01KSPDXW9E0YCQR9ZZV2N2SNG6",
-                            "name": "创建时间",
-                            "code": "created_at",
-                            "type": "ATTRIBUTE_TYPE_DATETIME",
-                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME"
-                        },
-                        {
-                            "id": "01KSPDXW9E4MWQ9ASFB4EKJKMJ",
-                            "name": "更新时间",
-                            "code": "updated_at",
-                            "type": "ATTRIBUTE_TYPE_DATETIME",
-                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME"
                         }
                     ],
                     "indexes": [

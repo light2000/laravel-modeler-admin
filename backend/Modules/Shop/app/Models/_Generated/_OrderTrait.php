@@ -48,8 +48,6 @@ trait _OrderTrait
             'order_no' => 'string',
             'total_amount' => 'float',
             'status' => OrderStatus::class,
-            'created_at' => 'datetime',
-            'updated_at' => 'datetime',
         ];
     }
 

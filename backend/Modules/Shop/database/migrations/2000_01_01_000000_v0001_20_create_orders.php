@@ -21,8 +21,6 @@ return new class extends Migration {
             $table->string('order_no', 191)->comment("订单编号");
             $table->decimal('total_amount', 10, 2)->comment("订单总金额");
             $table->string('status', 32)->comment("订单状态:待支付(pending),已支付(paid),已发货(shipped),已完成(completed),已取消(cancelled)");
-            $table->dateTime('created_at')->comment("创建时间");
-            $table->dateTime('updated_at')->comment("更新时间");
             $table->timestamps();
             $table->softDeletes();
             $table->unique(['user_id'], "idx_user_id");
