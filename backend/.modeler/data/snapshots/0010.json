@@ -1155,6 +1155,7 @@
     ],
     "schemaVersion": 1,
     "name": "Laravel",
+    "buildVersion": "0010",
     "namespaces": [
         {
             "id": "01KRGDMQY2PVDND7Y7PNR4508X",

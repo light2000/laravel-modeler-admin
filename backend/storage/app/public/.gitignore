@@ -1,4 +1,4 @@
 *
 !.gitignore
-!/demo/
-!/demo/**
+!/demos/
+!/demos/**

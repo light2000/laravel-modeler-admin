@@ -547,7 +547,7 @@
                             "id": "01KSGYCDNCFNCDQBZ62HF45Y3R",
                             "name": "图标",
                             "code": "icon",
-                            "type": "ATTRIBUTE_TYPE_FILE",
+                            "type": "ATTRIBUTE_TYPE_STRING",
                             "abilities": [
                                 "ATTRIBUTE_ABILITY_IMAGE"
                             ],
@@ -1155,6 +1155,7 @@
     ],
     "schemaVersion": 1,
     "name": "Laravel",
+    "buildVersion": "0009",
     "namespaces": [
         {
             "id": "01KRGDMQY2PVDND7Y7PNR4508X",

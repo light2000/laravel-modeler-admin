@@ -21,7 +21,7 @@ class CategoryFactory extends Factory
     {
         return [
             'sort_order' => fake()->numberBetween(0, 9999),
-            'icon' => fake()->lexify(str_repeat('?', rand(5, 10))),
+            'icon' => 'demos/images/' . rand(1, 10) . '.jpg',
         ];
     }
 }

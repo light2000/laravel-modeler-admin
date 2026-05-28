@@ -14,7 +14,7 @@ export const userTableSchema: TableColumn<UserListItem>[] = [
   },
   {
     prop: 'avatar',
-    type: 'image',
+    type: 'avatar',
     label: '头像',
     minWidth: 66
   },

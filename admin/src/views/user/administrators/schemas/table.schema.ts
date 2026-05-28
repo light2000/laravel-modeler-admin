@@ -14,7 +14,7 @@ export const administratorTableSchema: TableColumn<AdministratorListItem>[] = [
   },
   {
     prop: 'avatar',
-    type: 'image',
+    type: 'avatar',
     label: '头像',
     minWidth: 66
   },

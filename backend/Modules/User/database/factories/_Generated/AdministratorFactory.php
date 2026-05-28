@@ -23,7 +23,7 @@ class AdministratorFactory extends Factory
             'status' => fake()->randomElement(['active', 'disabled']),
             'password' => fake()->lexify(str_repeat('?', rand(5, 10))),
             'nickname' => fake()->lexify(str_repeat('?', rand(5, 10))),
-            'avatar' => 'demos/archives/' . rand(1, 10) . '.zip',
+            'avatar' => 'demos/avatars/' . rand(1, 10) . '.png',
         ];
     }
 }
