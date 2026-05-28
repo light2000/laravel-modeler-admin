@@ -6,6 +6,7 @@ export interface DashboardOverview {
     roles: number
     categories: number
     products: number
+    orders: number
     actors: number
     athletes: number
 }

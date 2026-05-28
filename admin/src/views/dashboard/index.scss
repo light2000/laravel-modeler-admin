@@ -154,6 +154,11 @@
     background: rgb(5 150 105 / 12%);
 }
 
+.stat-card--orders .stat-icon {
+    color: #7c3aed;
+    background: rgb(124 58 237 / 12%);
+}
+
 .dashboard-main {
     display: grid;
     grid-template-columns: 1.4fr 1fr;

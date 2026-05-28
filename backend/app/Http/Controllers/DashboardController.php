@@ -10,6 +10,7 @@ use Modules\Shop\Enums\ProductStatus;
 use Modules\Shop\Models\Actor;
 use Modules\Shop\Models\Athlete;
 use Modules\Shop\Models\Category;
+use Modules\Shop\Models\Order;
 use Modules\Shop\Models\Product;
 use Modules\User\Models\Administrator;
 use Modules\User\Models\Role;
@@ -25,6 +26,7 @@ class DashboardController extends Controller
             'roles' => Role::query()->count(),
             'categories' => Category::query()->count(),
             'products' => Product::query()->count(),
+            'orders' => Order::query()->count(),
             'actors' => Actor::query()->count(),
             'athletes' => Athlete::query()->count(),
         ];

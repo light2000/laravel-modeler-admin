@@ -229,6 +229,7 @@ const overview = reactive<DashboardOverview>({
     roles: 0,
     categories: 0,
     products: 0,
+    orders: 0,
     actors: 0,
     athletes: 0
 })
@@ -262,6 +263,14 @@ const statCards = [
         icon: 'ep:Goods',
         tone: 'shop',
         path: '/shop/products'
+    },
+    {
+        key: 'orders' as const,
+        label: '订单',
+        hint: 'orders',
+        icon: 'ep:ShoppingCart',
+        tone: 'orders',
+        path: '/shop/orders'
     },
     {
         key: 'categories' as const,
