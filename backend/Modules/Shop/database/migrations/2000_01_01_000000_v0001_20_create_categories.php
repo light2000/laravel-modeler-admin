@@ -15,15 +15,22 @@ return new class extends Migration {
 
     public function up()
     {
-        Schema::table('administrators', function (Blueprint $table) {
-            $table->unique(['account'], "uniq_mailbox");
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id()->comment("分类ID");
+            $table->string('name', 191)->comment("分类名称");
+            $table->integer('parent_id')->nullable()->comment("父分类");
+            $table->integer('sort_order')->comment("排序");
+            $table->string('icon', 1024)->nullable()->comment("图标");
+            $table->timestamps();
+            $table->softDeletes();
+            $table->unique(['name'], "idx_name");
+            $table->index(['parent_id'], "idx_parent_id");
+            $table->comment("分类");
         });
     }
 
     public function down()
     {
-        Schema::table('administrators', function (Blueprint $table) {
-             $table->dropIndex('uniq_mailbox');
-        });
+        Schema::drop('categories');
     }
 };

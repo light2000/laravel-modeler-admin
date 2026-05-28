@@ -160,6 +160,15 @@
                             "isReverse": true,
                             "isInternal": true,
                             "reverseRelationId": "01KS1SKDC76E6ZNNMECDQ5M0QC"
+                        },
+                        {
+                            "id": "01KSPDXW9EWSYQT21XEE3QJBRY",
+                            "code": "orders",
+                            "type": "ITEM_RELATION_TYPE_HAS_MANY",
+                            "targetItemId": "01KSPDXW9D7M89D48QFD3AW8YB",
+                            "attrId": "01KSPDXW9E30T10PK52JN3BPMP",
+                            "isReverse": true,
+                            "reverseRelationId": "01KSPDXW9FQSZM2PVX489SBDH1"
                         }
                     ],
                     "hasFactory": true,
@@ -614,8 +623,8 @@
                     "softDel": true,
                     "hasCreatedAt": true,
                     "hasUpdatedAt": true,
-                    "x": 1235,
-                    "y": 423,
+                    "x": 1278,
+                    "y": 450,
                     "attrs": [
                         {
                             "id": "01KSGZ567XPTV30QN3XVKW1VBE",
@@ -798,6 +807,16 @@
                                 }
                             ],
                             "isInternal": true
+                        },
+                        {
+                            "id": "01KSPDYTTN5KKXCD26TNV1WCNX",
+                            "code": "suborders",
+                            "type": "ITEM_RELATION_TYPE_HAS_MANY",
+                            "targetItemId": "01KSPDYTTN86T6GW2KJ0EXX53E",
+                            "attrId": "01KSPDYTTNJQE7XA8CAS6S1R0H",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KSPDYTTNZSHH78MQF7XHJ699"
                         }
                     ],
                     "hasFactory": true,
@@ -971,6 +990,243 @@
                             "isReverse": true,
                             "isInternal": true,
                             "reverseRelationId": "01KSH0826K0YMRVXSRHH1HFG86"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KSPDXW9D7M89D48QFD3AW8YB",
+                    "name": "订单",
+                    "code": "order",
+                    "table": "orders",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 783,
+                    "y": 128,
+                    "attrs": [
+                        {
+                            "id": "01KSPDXW9E30T10PK52JN3BPMP",
+                            "name": "用户ID",
+                            "code": "user_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "nullable": true,
+                            "behavior": "ATTRIBUTE_BEHAVIOR_FK",
+                            "fakeMin": "1",
+                            "fakeMax": "100000"
+                        },
+                        {
+                            "id": "01KSPDXW9E1PEND5YP2TRAW6GV",
+                            "name": "订单编号",
+                            "code": "order_no",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "abilities": [
+                                "ATTRIBUTE_ABILITY_UUID"
+                            ],
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255
+                        },
+                        {
+                            "id": "01KSPDXW9EEFP7YPZ34Q2B48HN",
+                            "name": "订单总金额",
+                            "code": "total_amount",
+                            "type": "ATTRIBUTE_TYPE_DECIMAL",
+                            "precision": 10,
+                            "scale": 2,
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DECIMAL",
+                            "fakeMin": "1.00",
+                            "fakeMax": "1000000.00"
+                        },
+                        {
+                            "id": "01KSPDXW9E2F1MKFZCF4ACBH3D",
+                            "name": "订单状态",
+                            "code": "status",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KSPDX9XJ8Y34WAV8VNRSGVJ2",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KSPDXW9E0YCQR9ZZV2N2SNG6",
+                            "name": "创建时间",
+                            "code": "created_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME"
+                        },
+                        {
+                            "id": "01KSPDXW9E4MWQ9ASFB4EKJKMJ",
+                            "name": "更新时间",
+                            "code": "updated_at",
+                            "type": "ATTRIBUTE_TYPE_DATETIME",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DATETIME"
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KSPDXW9EQ4N0WVJTP9VY9S2N",
+                            "code": "idx_user_id",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KSPDXW9E30T10PK52JN3BPMP"
+                            ]
+                        },
+                        {
+                            "id": "01KSPDXW9E3W23Y8BJ0TKF97PB",
+                            "code": "idx_order_no",
+                            "type": "INDEX_TYPE_UNIQUE",
+                            "attrIds": [
+                                "01KSPDXW9E1PEND5YP2TRAW6GV"
+                            ]
+                        },
+                        {
+                            "id": "01KSPDXW9E299C1NXPC96JN3BT",
+                            "code": "idx_status",
+                            "attrIds": [
+                                "01KSPDXW9E2F1MKFZCF4ACBH3D"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KSPDXW9FQSZM2PVX489SBDH1",
+                            "code": "user",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO",
+                            "targetItemId": "01KRZ019RYVEB8W4AQDKM0H8V0",
+                            "attrId": "01KSPDXW9E30T10PK52JN3BPMP",
+                            "reverseRelationId": "01KSPDXW9EWSYQT21XEE3QJBRY"
+                        },
+                        {
+                            "id": "01KSPDYTTNAAN59A7FA7S3GX2Y",
+                            "code": "suborders",
+                            "type": "ITEM_RELATION_TYPE_HAS_MANY",
+                            "targetItemId": "01KSPDYTTN86T6GW2KJ0EXX53E",
+                            "attrId": "01KSPDYTTNWBYH1N0MYZ16VTAJ",
+                            "isReverse": true,
+                            "isInternal": true,
+                            "reverseRelationId": "01KSPDYTTNWAN07JZZ30EP4WYZ"
+                        }
+                    ],
+                    "hasFactory": true,
+                    "hasSeeder": true
+                },
+                {
+                    "id": "01KSPDYTTN86T6GW2KJ0EXX53E",
+                    "name": "子订单",
+                    "code": "suborder",
+                    "table": "suborders",
+                    "softDel": true,
+                    "hasCreatedAt": true,
+                    "hasUpdatedAt": true,
+                    "x": 1055,
+                    "y": 161,
+                    "attrs": [
+                        {
+                            "id": "01KSPDYTTNWBYH1N0MYZ16VTAJ",
+                            "name": "订单ID",
+                            "code": "order_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                        },
+                        {
+                            "id": "01KSPDYTTNJQE7XA8CAS6S1R0H",
+                            "name": "产品ID",
+                            "code": "product_id",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "behavior": "ATTRIBUTE_BEHAVIOR_FK"
+                        },
+                        {
+                            "id": "01KSPDYTTN2PC48XSFQEP49BWQ",
+                            "name": "数量",
+                            "code": "quantity",
+                            "type": "ATTRIBUTE_TYPE_INT",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_INT",
+                            "fakeMin": "1",
+                            "fakeMax": "999"
+                        },
+                        {
+                            "id": "01KSPDYTTNFKHBW0GRVNPFJSN4",
+                            "name": "单价",
+                            "code": "price",
+                            "type": "ATTRIBUTE_TYPE_DECIMAL",
+                            "precision": 10,
+                            "scale": 2,
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DECIMAL",
+                            "fakeMin": "0.01",
+                            "fakeMax": "99999.99"
+                        },
+                        {
+                            "id": "01KSPDYTTNEQ8T3CS8ACZNQ4DW",
+                            "name": "小计金额",
+                            "code": "subtotal",
+                            "type": "ATTRIBUTE_TYPE_DECIMAL",
+                            "precision": 10,
+                            "scale": 2,
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_DECIMAL",
+                            "fakeMin": "0.01",
+                            "fakeMax": "999999.99"
+                        },
+                        {
+                            "id": "01KSPDYTTN10VKMXE0N33TFZDG",
+                            "name": "子订单状态",
+                            "code": "status",
+                            "type": "ATTRIBUTE_TYPE_ENUM",
+                            "dictId": "01KSPDX9XJ8Y34WAV8VNRSGVJ2",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR"
+                        },
+                        {
+                            "id": "01KSPDYTTNMHDVJCZM4A59BV5P",
+                            "name": "备注",
+                            "code": "remark",
+                            "type": "ATTRIBUTE_TYPE_STRING",
+                            "fieldType": "ATTRIBUTE_FIELD_TYPE_VARCHAR",
+                            "fieldLength": 255,
+                            "nullable": true
+                        }
+                    ],
+                    "indexes": [
+                        {
+                            "id": "01KSPDYTTNGT81BD1QFCB3KWEA",
+                            "code": "idx_order_id",
+                            "attrIds": [
+                                "01KSPDYTTNWBYH1N0MYZ16VTAJ"
+                            ]
+                        },
+                        {
+                            "id": "01KSPDYTTNH01R305PK7KWKXNG",
+                            "code": "idx_product_id",
+                            "attrIds": [
+                                "01KSPDYTTNJQE7XA8CAS6S1R0H"
+                            ]
+                        },
+                        {
+                            "id": "01KSPDYTTNX4V7R445NSNESZ6J",
+                            "code": "idx_status",
+                            "attrIds": [
+                                "01KSPDYTTN10VKMXE0N33TFZDG"
+                            ]
+                        }
+                    ],
+                    "relations": [
+                        {
+                            "id": "01KSPDYTTNWAN07JZZ30EP4WYZ",
+                            "code": "order",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO",
+                            "targetItemId": "01KSPDXW9D7M89D48QFD3AW8YB",
+                            "attrId": "01KSPDYTTNWBYH1N0MYZ16VTAJ",
+                            "isInternal": true,
+                            "reverseRelationId": "01KSPDYTTNAAN59A7FA7S3GX2Y"
+                        },
+                        {
+                            "id": "01KSPDYTTNZSHH78MQF7XHJ699",
+                            "code": "product",
+                            "type": "ITEM_RELATION_TYPE_BELONGS_TO",
+                            "targetItemId": "01KSGZ567X9XHA4M7CK2EFMP24",
+                            "attrId": "01KSPDYTTNJQE7XA8CAS6S1R0H",
+                            "isInternal": true,
+                            "reverseRelationId": "01KSPDYTTN5KKXCD26TNV1WCNX"
                         }
                     ],
                     "hasFactory": true,
@@ -1149,6 +1405,38 @@
                     "id": "01KSH01DQTEVNEMDD9WZEM88JB",
                     "name": "女",
                     "code": "female"
+                }
+            ]
+        },
+        {
+            "id": "01KSPDX9XJ8Y34WAV8VNRSGVJ2",
+            "name": "订单状态",
+            "code": "order_status",
+            "options": [
+                {
+                    "id": "01KSPDX9XJ0MRFWAC6V1T6TYGM",
+                    "name": "待支付",
+                    "code": "pending"
+                },
+                {
+                    "id": "01KSPDX9XJJR6V6STXKHGPK3WS",
+                    "name": "已支付",
+                    "code": "paid"
+                },
+                {
+                    "id": "01KSPDX9XJNCHYPW7D4CNFS806",
+                    "name": "已发货",
+                    "code": "shipped"
+                },
+                {
+                    "id": "01KSPDX9XJ6XW6SBJSAGA9H0QN",
+                    "name": "已完成",
+                    "code": "completed"
+                },
+                {
+                    "id": "01KSPDX9XJG1GKVZX1DZQT0ASN",
+                    "name": "已取消",
+                    "code": "cancelled"
                 }
             ]
         }

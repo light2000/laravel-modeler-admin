@@ -17,7 +17,7 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id()->comment("产品ID");
-            $table->string('name', 1)->comment("产品名称");
+            $table->string('name')->comment("产品名称");
             $table->text('description')->nullable()->comment("产品描述");
             $table->decimal('price', 10, 2)->comment("价格");
             $table->integer('stock')->comment("库存");

@@ -14,6 +14,7 @@ use Illuminate\Database\Seeder;
 use Modules\Shop\Models\Category;
 use Modules\Shop\Models\Athlete;
 use Modules\Shop\Models\Actor;
+use Modules\Shop\Models\Suborder;
 use Illuminate\Support\Facades\Log;
 
 class ProductRelationSeeder extends Seeder

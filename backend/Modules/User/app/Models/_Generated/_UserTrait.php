@@ -23,6 +23,7 @@ use Modules\User\Models\Role;
 use App\Models\PivotRole;
 use Modules\User\Models\Permission;
 use App\Models\PivotPermission;
+use Modules\Shop\Models\Order;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,6 +74,11 @@ trait _UserTrait
     {
         return $this->morphToMany(Permission::class, 'model', 'pivot_permissions', 'model_id', 'permission_id')
         ;
+    }
+    
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'user_id');
     }
     
 }

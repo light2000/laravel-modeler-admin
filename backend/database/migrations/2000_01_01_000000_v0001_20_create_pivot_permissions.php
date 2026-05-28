@@ -12,17 +12,20 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+
     public function up()
     {
-        Schema::table('pivot_permissions', function (Blueprint $table) {
-            $table->renameColumn('item_id', 'model_id');
+        Schema::create('pivot_permissions', function (Blueprint $table) {
+            $table->id()->comment("权限多态关联ID");
+            $table->integer('permission_id')->comment("权限ID");
+            $table->integer('model_id')->comment("多态ID");
+            $table->string('model_type')->nullable()->default(null)->comment("多态类型");
+            $table->comment("权限多态关联");
         });
     }
 
     public function down()
     {
-        Schema::table('pivot_permissions', function (Blueprint $table) {
-            $table->renameColumn('model_id', 'item_id');
-        });
+        Schema::drop('pivot_permissions');
     }
 };

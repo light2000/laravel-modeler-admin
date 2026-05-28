@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->id()->comment("角色权限ID");
             $table->integer('role_id')->comment("角色ID");
             $table->integer('permission_id')->comment("权限ID");
-            $table->timestamps();
             $table->comment("角色权限");
         });
     }

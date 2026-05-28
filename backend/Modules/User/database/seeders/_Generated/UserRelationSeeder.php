@@ -16,6 +16,7 @@ use Modules\User\Models\Role;
 use App\Models\PivotRole;
 use Modules\User\Models\Permission;
 use App\Models\PivotPermission;
+use Modules\Shop\Models\Order;
 use Illuminate\Support\Facades\Log;
 
 class UserRelationSeeder extends Seeder

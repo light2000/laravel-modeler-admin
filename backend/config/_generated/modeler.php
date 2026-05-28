@@ -17,6 +17,8 @@ use Modules\Shop\Models\Category;
 use Modules\Shop\Models\Product;
 use Modules\Shop\Models\Actor;
 use Modules\Shop\Models\Athlete;
+use Modules\Shop\Models\Order;
+use Modules\Shop\Models\Suborder;
 use Modules\User\Database\Seeders\_Generated\UserBaseSeeder;
 use Modules\User\Database\Seeders\_Generated\UserRelationSeeder;
 use Modules\User\Database\Seeders\_Generated\AdministratorBaseSeeder;
@@ -27,6 +29,10 @@ use Modules\Shop\Database\Seeders\_Generated\ProductBaseSeeder;
 use Modules\Shop\Database\Seeders\_Generated\ProductRelationSeeder;
 use Modules\Shop\Database\Seeders\_Generated\ActorBaseSeeder;
 use Modules\Shop\Database\Seeders\_Generated\AthleteBaseSeeder;
+use Modules\Shop\Database\Seeders\_Generated\OrderBaseSeeder;
+use Modules\Shop\Database\Seeders\_Generated\OrderRelationSeeder;
+use Modules\Shop\Database\Seeders\_Generated\SuborderBaseSeeder;
+use Modules\Shop\Database\Seeders\_Generated\SuborderRelationSeeder;
 
 return [
     'morph_map' => [
@@ -39,6 +45,8 @@ return [
         'product' => Product::class,
         'actor' => Actor::class,
         'athlete' => Athlete::class,
+        'order' => Order::class,
+        'suborder' => Suborder::class,
     ],
     'seeders' => [
         UserBaseSeeder::class,
@@ -47,10 +55,14 @@ return [
         ProductBaseSeeder::class,
         ActorBaseSeeder::class,
         AthleteBaseSeeder::class,
+        OrderBaseSeeder::class,
+        SuborderBaseSeeder::class,
         UserRelationSeeder::class,
         AdministratorRelationSeeder::class,
         CategoryRelationSeeder::class,
         ProductRelationSeeder::class,
+        OrderRelationSeeder::class,
+        SuborderRelationSeeder::class,
     ],
     'migration_dirs' => [
         'database/migrations',
